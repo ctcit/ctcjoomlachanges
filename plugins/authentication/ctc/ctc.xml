@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.1" type="plugin" group="authentication">
+    <name>Authentication - ctc</name>
+    <author>Richard Lobb</author>
+    <creationDate>November 18, 2015</creationDate>
+    <copyright>(C) 2005 - 2013 Open Source Matters. All rights reserved.</copyright>
+    <license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+    <authorEmail>richard.lobb@canterbury.ac.nz</authorEmail>
+    <authorUrl>http://cosc.canterbury.ac.nz/richard.lobb</authorUrl>
+    <version>1.0</version>
+    <description>An authentication plugin to authenticate against the CTC DB.
+    </description>
+    <files>
+        <filename plugin="ctc">ctc.php</filename>
+    </files>
+    <config/>
+</extension>

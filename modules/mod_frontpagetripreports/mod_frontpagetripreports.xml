@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<extension type="module" version="3.1" client="site" method="upgrade">
+	<name>Recent trip reports</name>
+	<author>Doug Forster</author>
+	<creationDate>December 2015</creationDate>
+	<copyright>(C) 2005 Open Source Matters. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>ctc@forster.net.nz</authorEmail>
+	<authorUrl></authorUrl>
+	<version>1.0.0</version>
+	<description>This module is a shim to look in to the trip reports system to show the latest trip reports or selected report.</description>
+	<files>
+		<filename module="mod_frontpagetripreports">mod_frontpagetripreports.php</filename>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="advanced">
+				<field
+					name="@spacer"
+					type="spacer"
+					label=""
+					description="" />
+				<field
+					name="moduleclass_sfx"
+					type="textarea" rows="3"
+                                        default="fpi"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field
+					name="cache"
+					type="list"
+					default="0"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="width"
+					type="text"
+					default="600"
+					label="Width"
+					description="Enter width" />
+				<field
+					name="height"
+					type="text"
+					default="600"
+					label="Height"
+					description="Enter height" />
+				<field
+					name="maxrecent"
+					type="text"
+					default="10"
+					label="Max recent trips on front page"
+					description="Enter max" />
+				<field
+					name="maxdays"
+					type="text"
+					default="200"
+					label="Max age (days) of trips on front page"
+					description="Enter max" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="static">
+					<option
+				        value="static"></option>
+				</field>
+				<field
+					name="@spacer"
+					type="spacer"
+					label=""
+					description="" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>
