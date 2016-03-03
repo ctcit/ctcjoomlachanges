@@ -145,12 +145,13 @@ $doc->addCustomTag('<!--[if lt IE 9]><script src="http://html5shim.googlecode.co
 #gruemenu.grue_<?php echo $module->id ?> ul,
 #gruemenu.grue_<?php echo $module->id ?> ul li,
 #gruemenu.grue_<?php echo $module->id ?> ul > li > a { font-size:<?php echo $menuFontSize; ?>}
+#gruemenu.grue_<?php echo $module->id ?> ul > li.separator > a {font-weight:bold; font-size:<?php echo $menuFontSize + 3; ?>px}/* added drf 2016*/
 #gruemenu.grue_<?php echo $module->id ?> ul > li > ul > li > a { font-size:<?php echo $submenuFontSize; ?>!important}
 #gruemenu.grue_<?php echo $module->id ?> > ul > li > a { color: <?php echo $menulink; ?>; text-transform:uppercase}
 #gruemenu.grue_<?php echo $module->id ?> > ul > li:hover > a,
 #gruemenu.grue_<?php echo $module->id ?> > ul > li > a:hover,
 #gruemenu.grue_<?php echo $module->id ?> > ul > li.active > a {color: <?php echo $menulinkhover; ?>; background: <?php echo $menubghover; ?>;}
-#gruemenu.grue_<?php echo $module->id ?> > ul > li.separator > a {color: black; background: white;font-weight:bold} /* added drf 2016*/
+#gruemenu.grue_<?php echo $module->id ?> > ul > li.separator > a {color: black; background: white;} /* added drf 2016*/
 #gruemenu.grue_<?php echo $module->id ?> ul ul li:hover > a,
 #gruemenu.grue_<?php echo $module->id ?> ul ul li.active > a {color: <?php echo $menulinkhover; ?>; background: <?php echo $menubghover; ?>;}
 #gruemenu.grue_<?php echo $module->id ?> ul ul li a, #navigation-toggle {color: <?php echo $submenulink; ?>; background: <?php echo $submenubg; ?>;}
