@@ -39,7 +39,7 @@ jQuery(document).ready(function($) {
         },
         wipeRight: function() {
           // Open
-          $.sidr('open', 'sidr-main');
+          //$.sidr('open', 'sidr-main');
         },
         preventDefaultEvents: false
       });	

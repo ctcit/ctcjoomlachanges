@@ -102,17 +102,17 @@ $doc->addCustomTag('<!--[if lt IE 9]><script src="http://html5shim.googlecode.co
 <?php if ($menudir==2) { ?>
 /* Left-to-Right */
 #gruemenu.grue_<?php echo $module->id ?> ul li { margin:0!important; padding:0!important }
-#gruemenu.grue_<?php echo $module->id ?> > ul > li { display:block }
-#gruemenu.grue_<?php echo $module->id ?> > ul > li.has-sub > a::after {border-left-color: <?php echo $menulink; ?>;  right: 17px; top: 10px; }/* modified top DRF*/
-#gruemenu.grue_<?php echo $module->id ?> > ul > li.has-sub.active > a::after,
-#gruemenu.grue_<?php echo $module->id ?> > ul > li.has-sub:hover > a {border-left-color: <?php echo $menulinkhover; ?>;}
+#gruemenu.grue_<?php echo $module->id ?> > ul li { display:block }
+#gruemenu.grue_<?php echo $module->id ?> > ul li.has-sub > a::after {border-left-color: <?php echo $menulink; ?>;  right: 17px; top: 0px; }/* modified top (arrow) DRF 2016*/
+//#gruemenu.grue_<?php echo $module->id ?> > ul li.has-sub.active > a::after,
+//#gruemenu.grue_<?php echo $module->id ?> > ul li.has-sub:hover > a {border-left-color: <?php echo $menulinkhover; ?>;}/* removed DRF 2016*/
 #gruemenu.grue_<?php echo $module->id ?> ul ul { position: absolute; left: -9999px; top: auto; padding-left: 6px;}
-#gruemenu.grue_<?php echo $module->id ?> > ul > li > ul::after { content: ""; position: absolute; width: 0; height: 0; border: 5px solid transparent; top: 20px; left: -3px;}
+#gruemenu.grue_<?php echo $module->id ?> > ul li > ul::after { content: ""; position: absolute; width: 0; height: 0; border: 5px solid transparent; top: 20px; left: -3px;}
 #gruemenu.grue_<?php echo $module->id ?> ul ul ul::after {content: "";position: absolute; width: 0; height: 0; border: 5px solid transparent;  top: 11px; left: -3px;}
-#gruemenu.grue_<?php echo $module->id ?> > ul > li:hover > ul {top:0;left:100%;}
+#gruemenu.grue_<?php echo $module->id ?> > ul li:hover > ul {top:0;left:100%;}
 #gruemenu.grue_<?php echo $module->id ?> ul ul ul {padding-top: 0;padding-left: 6px;}
-#gruemenu.grue_<?php echo $module->id ?> ul ul > li:hover > ul {left: 220px;top: 0;}
-#gruemenu.grue_<?php echo $module->id ?> > ul > li > ul::after { border-right-color: <?php echo $submenubg; ?>}
+#gruemenu.grue_<?php echo $module->id ?> ul ul li:hover > ul {left: 220px;top: 0;}
+#gruemenu.grue_<?php echo $module->id ?> > ul li > ul::after { border-right-color: <?php echo $submenubg; ?>}
 #gruemenu.grue_<?php echo $module->id ?> ul ul ul::after {border-right-color:  <?php echo $submenubg; ?> }
 #gruemenu.grue_<?php echo $module->id ?> ul ul li.has-sub > a::after {border-left-color: <?php echo $submenulink; ?>;   right: 17px; top: 14px; }
 #gruemenu.grue_<?php echo $module->id ?> ul ul li.has-sub.active > a::after,
@@ -138,20 +138,22 @@ $doc->addCustomTag('<!--[if lt IE 9]><script src="http://html5shim.googlecode.co
 #gruemenu.grue_<?php echo $module->id ?> ul ul li.has-sub.active > a::after,
 #gruemenu.grue_<?php echo $module->id ?> ul ul li.has-sub:hover > a::after {border-right-color:<?php echo $menulinkhover; ?>; }
 <?php } ?>
-#gruemenu.grue_<?php echo $module->id ?> { background: <?php echo $menubg; ?>; }
-#gruemenu.grue_<?php echo $module->id ?> ul li a, #gruemenu.grue_<?php echo $module->id ?> 
+#gruemenu.grue_<?php echo $module->id ?> ul.section li a { background: <?php echo $menubg; ?>; border: <?php echo $menuradius; ?>px solid; border-color: <?php echo $menubg; ?>}
+#gruemenu.grue_<?php echo $module->id ?> ul li.separator { background: white; border: 15px solid; border-color: white}
+#gruemenu.grue_<?php echo $module->id ?> ul li a, 
+#gruemenu.grue_<?php echo $module->id ?> 
 #gruemenu.grue_<?php echo $module->id ?> {font-family: "<?php echo $fontStyle[0]; ?>", Arial, Helvetica, sans-serif ;}
 #gruemenu.grue_<?php echo $module->id ?>,
 #gruemenu.grue_<?php echo $module->id ?> ul,
 #gruemenu.grue_<?php echo $module->id ?> ul li,
-#gruemenu.grue_<?php echo $module->id ?> ul > li > a { font-size:<?php echo $menuFontSize; ?>}
-#gruemenu.grue_<?php echo $module->id ?> ul > li.separator > a {font-weight:bold; font-size:<?php echo $menuFontSize + 3; ?>px}/* added drf 2016*/
-#gruemenu.grue_<?php echo $module->id ?> ul > li > ul > li > a { font-size:<?php echo $submenuFontSize; ?>!important}
-#gruemenu.grue_<?php echo $module->id ?> > ul > li > a { color: <?php echo $menulink; ?>; text-transform:uppercase}
-#gruemenu.grue_<?php echo $module->id ?> > ul > li:hover > a,
-#gruemenu.grue_<?php echo $module->id ?> > ul > li > a:hover,
-#gruemenu.grue_<?php echo $module->id ?> > ul > li.active > a {color: <?php echo $menulinkhover; ?>; background: <?php echo $menubghover; ?>;}
-#gruemenu.grue_<?php echo $module->id ?> > ul > li.separator > a {color: black; background: white;} /* added drf 2016*/
+#gruemenu.grue_<?php echo $module->id ?> ul li > a { font-size:<?php echo $menuFontSize; ?>}
+#gruemenu.grue_<?php echo $module->id ?> ul li.separator > a {font-weight:bold; font-size:<?php echo $menuFontSize + 3; ?>px}/* added drf 2016*/
+#gruemenu.grue_<?php echo $module->id ?> ul li > ul > li > a { font-size:<?php echo $submenuFontSize; ?>!important}
+#gruemenu.grue_<?php echo $module->id ?> > ul li > a { color: <?php echo $menulink; ?>; text-transform:uppercase}
+#gruemenu.grue_<?php echo $module->id ?> > ul li:hover > a,
+#gruemenu.grue_<?php echo $module->id ?> > ul li > a:hover,
+#gruemenu.grue_<?php echo $module->id ?> > ul li.active > a {color: <?php echo $menulinkhover; ?>; background: <?php echo $menubghover; ?>;}
+#gruemenu.grue_<?php echo $module->id ?> > ul li.separator > a {color: black; background: white;} /* added drf 2016*/
 #gruemenu.grue_<?php echo $module->id ?> ul ul li:hover > a,
 #gruemenu.grue_<?php echo $module->id ?> ul ul li.active > a {color: <?php echo $menulinkhover; ?>; background: <?php echo $menubghover; ?>;}
 #gruemenu.grue_<?php echo $module->id ?> ul ul li a, #navigation-toggle {color: <?php echo $submenulink; ?>; background: <?php echo $submenubg; ?>;}
@@ -159,10 +161,11 @@ $doc->addCustomTag('<!--[if lt IE 9]><script src="http://html5shim.googlecode.co
 #gruemenu.grue_<?php echo $module->id ?> ul ul li.active > a,
 #navigation-toggle:hover {color: <?php echo $menulinkhover; ?>;background:<?php echo $menubghover; ?>;}
 #gruemenu.grue_<?php echo $module->id ?> #menu-button{ color: <?php echo $menulink; ?>; }
-#gruemenu.grue_<?php echo $module->id ?> {-webkit-border-radius: <?php echo $menuradius; ?>px; -moz-border-radius: <?php echo $menuradius; ?>px; -o-border-radius: <?php echo $menuradius; ?>px; border-radius: <?php echo $menuradius; ?>px;  border-radius: <?php echo $menuradius; ?>px;}
-#gruemenu.grue_<?php echo $module->id ?> ul li:first-child > a  { border-top-left-radius: <?php echo $menuradius; ?>px; border-bottom-left-radius: <?php echo $menuradius; ?>px;}
-#gruemenu.grue_<?php echo $module->id ?> ul ul li:first-child > a { border-top-left-radius: <?php echo $menuradius; ?>px; border-top-right-radius: <?php echo $menuradius; ?>px; border-bottom-left-radius: 0px; border-bottom-right-radius: px;}
-#gruemenu.grue_<?php echo $module->id ?> ul ul li:last-child > a {border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: <?php echo $menuradius; ?>px; border-bottom-right-radius: <?php echo $menuradius; ?>px;}
+//#gruemenu.grue_<?php echo $module->id ?> ul.section li > a{background-clip: padding-box; -webkit-border-radius: <?php echo $menuradius; ?>px; -moz-border-radius: <?php echo $menuradius; ?>px; -o-border-radius: <?php echo $menuradius; ?>px; border-radius: <?php echo $menuradius; ?>px;  border-radius: <?php echo $menuradius; ?>px;}
+#gruemenu.grue_<?php echo $module->id ?> ul.section > li:first-child > a{border-top-left-radius: <?php echo $menuradius; ?>px; border-top-right-radius: <?php echo $menuradius; ?>px;}
+#gruemenu.grue_<?php echo $module->id ?> ul.section > li:last-child > a{border-bottom-left-radius: <?php echo $menuradius; ?>px; border-bottom-right-radius: <?php echo $menuradius; ?>px;}
+#gruemenu.grue_<?php echo $module->id ?> ul.section ul li:first-child > a { border-top-left-radius: <?php echo $menuradius; ?>px; border-top-right-radius: <?php echo $menuradius; ?>px;}
+#gruemenu.grue_<?php echo $module->id ?> ul.section ul li:last-child > a {border-bottom-left-radius: <?php echo $menuradius; ?>px; border-bottom-right-radius: <?php echo $menuradius; ?>px;}
 #gruemenu.grue_<?php echo $module->id ?> #menu-button::after {border-top: 2px solid <?php echo $menulink; ?>; border-bottom: 2px solid <?php echo $menulink; ?>; }
 #gruemenu.grue_<?php echo $module->id ?> #menu-button::before {border-top: 2px solid <?php echo $menulink; ?>; }
 /* Enable Fixed Menu */
@@ -193,6 +196,7 @@ $doc->addCustomTag('<!--[if lt IE 9]><script src="http://html5shim.googlecode.co
 	}
 ?>>
 <?php
+$inSection = false;
 foreach ($list as $i => &$item) :
 	$class = 'item-'.$item->id;
 	if ($item->id == $active_id) {
@@ -223,6 +227,15 @@ foreach ($list as $i => &$item) :
     // Added by DRF Feb 2016
     if ($item->type === 'separator'){
         $class .= ' separator';
+        if ($inSection){
+            // section ended by another separator
+            echo('</ul><ul>');
+            $inSection = false;
+        }
+    }else if (!$inSection){
+        // about to emit real menu item so start a section
+        echo('</ul><ul class="section">');
+        $inSection = true;     
     }
 
 	if (!empty($class)) {
@@ -260,6 +273,9 @@ foreach ($list as $i => &$item) :
 	}
 
 endforeach;
+//if ($inSection)
+    // close remaining section
+//    echo('</div>');
 ?>
 </ul>
 </div>
