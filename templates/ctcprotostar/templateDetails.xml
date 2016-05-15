@@ -35,7 +35,6 @@
 		<position>position-5</position>
 		<position>position-6</position>
         	<position>publicmenu</position>
-        	<position>membersmenu</position>
 		<position>position-7</position>
 		<position>position-8</position>
 		<position>position-9</position>
@@ -61,7 +60,7 @@
 					label="TPL_PROTOSTAR_BACKGROUND_COLOR_LABEL"
 					description="TPL_PROTOSTAR_BACKGROUND_COLOR_DESC" />
 
-				<field name="logoFile" class="" type="media" default=""
+				<field name="logoFile" class="" type="media" default="images/header_bg.jpg"
 					label="TPL_PROTOSTAR_LOGO_LABEL"
 					description="TPL_PROTOSTAR_LOGO_DESC" />
 					

@@ -7277,6 +7277,7 @@ figcaption {
 	background-repeat: repeat-x;
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0076b2', GradientType=0);
 }
+
 @media (max-width: 480px) {
 	.item-info > span {
 		display: block;

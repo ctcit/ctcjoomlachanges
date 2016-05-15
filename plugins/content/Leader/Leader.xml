@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<extension version="3.0" type="plugin" group="content" method="upgrade" >
+	<name>Trip Leader</name>
+    <author>Richard Lobb,Doug Forster</author>
+	<creationDate>May 2016</creationDate>
+	<copyright>(C) Christchurch Tramping Club.</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail>richard.lobb@canterbury.ac.nz</authorEmail>
+	<authorUrl>www.ctc.org.nz</authorUrl>
+	<version>1.1.0</version>
+	<description>Displays the leader of trip calendar entries if user is registered or a warning message otherwise.</description>
+    <license></license>
+	<files>
+		<filename plugin="Leader">Leader.php</filename>
+	</files>
+    <config/>
+</extension>

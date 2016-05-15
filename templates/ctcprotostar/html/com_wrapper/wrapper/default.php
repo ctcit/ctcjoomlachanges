@@ -38,7 +38,7 @@ defined('_JEXEC') or die;
             
             $location = isset($_GET['goto']) ? $_GET['goto'] : '';
             if ($location) {
-                $url = $livesite.'/tripreports/index.html#/'.$location;
+                $url = $live_site.'/tripreports/index.html#/'.$location;
             }
             if (substr($url, 0, 1) == '/') {
                 // Use live site to resolve relative url

@@ -46,7 +46,7 @@ $doc->addStyleSheet($this->baseurl . '/templates/' . $this->template . '/css/tem
 JHtml::_('bootstrap.loadCss', false, $this->direction);
 
 // Adjusting content width
-$bLeftModules = $this->countModules('position-7') + $this->countModules('membersmenu') + $this->countModules('publicmenu') > 0;
+$bLeftModules = $this->countModules('position-7') + $this->countModules('publicmenu') > 0;
 if ($bLeftModules && $this->countModules('position-8'))
 {
 	$span = "span6";
@@ -164,14 +164,6 @@ else
         					<!-- End Custom Postion -->
 					<?php endif; ?>
 
-					<?php if ($this->countModules('membersmenu')) : ?>
-       						<!-- Add custompostion -->
-						<br/><br/>
-						<div class="sidebar-nav">
-        						<jdoc:include type="modules" name="membersmenu" style="well" />
-						</div>
-        					<!-- End Custom Postion -->
-					<?php endif; ?>
 					<?php if ($this->countModules('position-8')) : ?>
 						<!-- Begin Sidebar -->
 						<br/><br/>
