@@ -49,7 +49,7 @@ sub {
 }
 img {
 	max-width: 100%;
-	width: auto \9;
+	width: 100%;
 	height: auto;
 	vertical-align: middle;
 	border: 0;
@@ -159,6 +159,18 @@ textarea {
 	h3 {
 		page-break-after: avoid;
 	}
+}
+.rtl .navigation .nav-child {
+	left: auto;
+	right: 0;
+}
+.rtl .navigation .nav > li > .nav-child:before {
+	left: auto;
+	right: 12px;
+}
+.rtl .navigation .nav > li > .nav-child:after {
+	left: auto;
+	right: 13px;
 }
 .clearfix {
 	*zoom: 1;
@@ -3911,7 +3923,6 @@ input[type="submit"].btn.btn-mini {
 .modal-body {
 	width: 98%;
 	position: relative;
-	overflow-y: auto;
 	max-height: 400px;
 	padding: 1%;
 }
@@ -6237,14 +6248,6 @@ div.modal.fade.in {
 	margin-right: .25em;
 	line-height: 14px;
 }
-dd > span[class^="icon-"] + time,
-dd > span[class*=" icon-"] + time {
-	margin-left: -0.25em;
-}
-dl.article-info dd.hits span[class^="icon-"],
-dl.article-info dd.hits span[class*=" icon-"] {
-	margin-right: 0;
-}
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
 	font-family: 'IcoMoon';
@@ -7277,7 +7280,6 @@ figcaption {
 	background-repeat: repeat-x;
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0076b2', GradientType=0);
 }
-
 @media (max-width: 480px) {
 	.item-info > span {
 		display: block;
@@ -7405,6 +7407,13 @@ figcaption {
 		padding: 10px;
 	}
 }
+@media (max-width: 979px) {
+	.nav-collapse.in.collapse {
+		overflow: visible;
+		height: 0;
+		z-index: 100;
+	}
+}
 @media (min-width: 768px) and (max-width: 979px) {
 	#login-form .input-small {
 		width: 62px;
@@ -7475,374 +7484,377 @@ code {
 	font-weight: bold;
 	padding: 1px 4px;
 }
-
-#sidemenu {margin: 0 auto; padding: 0; max-width:150px}
-#sidemenu img {width: 100%; display: block;}
+body.modal-open {
+	overflow: hidden;
+	-ms-overflow-style: none;
+}
+#users-profile-custom label {
+	display: inline;
+}
 
 /* CTC -----others-----*/
 
-    .back_button {
-        margin-top: 12px;
-    }
-
-    /* mosimage css from rhuk_solarflare */
-    div.mosimage {
-      border: 1px solid #ccc;
-    }
-
-    .mosimage {
-      border: 1px solid #cccccc;
-      margin: 5px
-    }
-
-    .mosimage_caption {
-      margin-top: 2px;
-      background: #efefef;
-      padding: 1px 2px;
-      color: #666;
-      font-size: 10px;
-      border-top: 1px solid #cccccc;
-    }
-
-    /* tripimage stuff */
-
-    div.mostripthumb {
-        width: 170px;
-    }
-
-    div.pictorialreportthumb {
-        width: 380px;
-    }
-
-    div.mostripthumb, div.mostripfullimage,
-        div.pictorialreportthumb {
-      border: 1px solid #ccc;
-      text-align: center;
-      float: left;
-      padding: 2px;
-      margin: 2px;
-      overflow: hidden;
-    }
-
-    div.mosttripthumb p {
-      width: 168px;
-    }
-
-    div.mostripthumb p, div.pictorialreportthumb p { /* The caption */
-      margin-top: 2px;
-      background: #efefef;
-      color: #444;
-      font-size: 10px;
-      border-top: 1px solid #cccccc;
-      margin-left: 1px;
-    }
-
-    p.fullimagecaption {
-        color: white;
-    }
-
-    div.fullimagepage, div.moduletablepfi {
-        text-align:center;
-    }
-
-
-    div.mostripthumb img, div.pictorialreportthumb img {
-        border: #446622 solid 1px;
-    }
-
-    p.imageButtons {
-        padding-top: 12px;
-    }
-
-    input[type="button"] {
-        border-radius: 5px;
-        padding: 4px;
-    }
-
-    span.inactiveimagelink, a.imagelink, input.closewindowbutton {
-    padding: 4px;
-        color:white;
-        border-radius: 5px;
-        background-color: #404040;
-    }
-
-    a.tripreportlink {
-        color: #FFFF88;
-    }
-
-    a.tripreportlink:hover {
-        color: #FFFFFF;
-        background-color: #202020;
-    }
-
-    span.inactiveimagelink {
-        color: gray;
-        background-color: #202020;
-    }
-
-   a.imagelink:hover, input.closewindowbutton:hover {
-        background-color:#606060;
-        color: #ffffd0;
-   }
-    div.mostripthumb a {
-        line-height: 1.0em;  /* Hack to suppress occasional mysterious extra space */
-    }
-
-    div.frontpageimages {
-        background-color: white;
-    }
-
-    /* Frontpage image (variant of mostripimage) */
-    /** **** CUT ALL THIS FROM HERE .... ****/
-    div.frontPageImage {
-      border: 1px solid #ccc;
-      width: 174px;
-      text-align: center;
-      float: left;
-      padding: 2px;
-      margin: 2px;
-      overflow: hidden;
-    }
-
-    /*
-    html>body div.frontPageImage {
-        width: 174px;
-    }
-    */
-
-    div.frontPageImage a img {
-        border: #669933 solid 1px;
-        width: 170px;
-    }
-
-    div.frontPageImage p { /* The caption */
-      margin-top: 2px;
-      background: #efefef;
-      color: #666;
-      font-size: 10px;
-      border-top: 1px solid #cccccc;
-      width: 172px;
-      text-align: center;
-      margin-left: 1px;
-    }
-
-    div.frontPageImage img {
-        border: 1px solid #999;
-    }
-
-    div.frontPageImage a {
-        border: none
-    }
-
-    /**** to here (when front page images redone ***/
-
-    div.spacer {
-      clear: both;
-    }
-
-    div.GPXFileList {
-        margin-top: 16px;
-    }
-
-    div.RouteMapList {
-        margin-top: 16px;
-    }
-
-    #members td {
-        padding-left: 3px;
-        padding-right: 3px;
-    }
-
-    #members td.col1 {
-        text-align: center;
-    }
-
-    /* Trip report submission form styles */
-
-    form.tripreportform select {
-        border: 1px solid black;
-    }
-
-    table.imageupload {
-        width: 100%;
-    }
-
-    table.tripReportFiles th {
-        padding-top:10px;
-        padding-bottom: 5px;
-        padding-left: 5px;
-    }
-
-    td.filenameTD {
-        padding: 2px;
-        margin-top: 5px;
-        width: 72%;
-    }
-
-    table.fileUpload td.input {
-        align: right;
-        text-align: right;
-    }
-
-    table.fileUpload input {
-        margin: 0;
-    }
-
-
-    button.changeFile {
-        border: 1px solid;
-        width: 75px;
-    }
-
-    /* Stuff for sorting resources when editing trip reports */
-    .sortable-list {
-        list-style-type: none; margin: 0; padding: 0
-    }
-
-    .sortable-list li {
-        margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em
-    }
-
-    .sortable-list li span {
-        position: absolute; margin-left: -1.3em;
-    }
-
-    .sortableThumb {
-        width: 90px;
-    }
-
-    td.resource-selector {
-        vertical-align: middle;
-    }
-
-    .resource-header {
-        font-size: 120%;
-        font-weight: bold;
-        padding-left: 30px;
-        padding-top: 20px;
-        width: 100%;
-    }
-
-    .resource-header td {
-        width: 50%;
-    }
-
-
-    td.resource-caption {
-        width: 100%;
-    }
-
-    .caption-input {
-        width: 100%;
-    }
-
-    .resource-delete-button {
-        margin-left: 10px;
-        margin-right: 30px;
-    }
-
-    .dummy-resource-slot {
-        display: none;
-    }
-
-
-    /* Printable membershiplist styles */
-
-    #Members4Printer * {
-        font-family: Times New Roman, serif;
-        font-size: 10pt;
-        color: black;
-        background: white;
-        padding: 0px;
-        padding-left: 4px;
-        padding-right: 4px;
-        border: 0px;
-        margin: 0px;
-        text-align: left;
-    }
-
-    #Members4Printer p {
-        padding-bottom: 8pt;
-    }
-
-    #Members4Printer h2 {
-        font-size: 16pt;
-        padding-bottom: 8pt;
-        text-align: center;
-    }
-
-    #Members4Printer table {
-        border-collapse: collapse;
-        padding-top: 8pt;
-    }
-
-    #Members4Printer td {
-        border: #ccc solid 1px;
-    }
-
-    #Members4Printer td.col1, #Members4Printer th.col1 {
-        text-align: center;
-    }
-
-
-        /* Loo loo styles */
-
-    p.Song {
-        color: #C00;
-        text-align: center;
-    }
-
-        p.Comment {
-        color: #171;
-        font-style: italic;
-    }
-
-    /* Temporary hack for 4-part front page images with 2 vertical
-     * (style mostripthumbv) and two horizontal (style mostripthumbh).
-     * Delete in due course */
-
-    div.mostripthumbv {
-        width: 108px;
-    }
-
-    div.mostripthumbh {
-        width: 140px;
-    }
-
-
-    div.mostripthumbv, div.mostripthumbh {
-      border: 1px solid #ccc;
-      text-align: center;
-      float: left;
-      padding: 2px;
-      margin: 2px;
-      overflow: hidden;
-    }
-
-    div.mosttripthumbv p {
-      width: 106px;
-    }
-
-    div.mosttripthumbh p {
-      width: 138px;
-    }
-
-    div.mostripthumbv p, div.mostripthumbh p { /* The caption */
-      margin-top: 2px;
-      background: #efefef;
-      color: #444;
-      font-size: 10px;
-      border-top: 1px solid #cccccc;
-      margin-left: 1px;
-    }
-
-    div.mostripthumbv img, div.mostripthumbh img {
-        border: #446622 solid 1px;
-    }
-
-    /* End of temporary 4-part front page image styles */
-
+.back_button {
+    margin-top: 12px;
 }
+
+/* mosimage css from rhuk_solarflare */
+div.mosimage {
+  border: 1px solid #ccc;
+}
+
+.mosimage {
+  border: 1px solid #cccccc;
+  margin: 5px
+}
+
+.mosimage_caption {
+  margin-top: 2px;
+  background: #efefef;
+  padding: 1px 2px;
+  color: #666;
+  font-size: 10px;
+  border-top: 1px solid #cccccc;
+}
+
+/* tripimage stuff */
+
+div.mostripthumb {
+    width: 170px;
+}
+
+div.pictorialreportthumb {
+    width: 380px;
+}
+
+div.mostripthumb, div.mostripfullimage,
+    div.pictorialreportthumb {
+  border: 1px solid #ccc;
+  text-align: center;
+  float: left;
+  padding: 2px;
+  margin: 2px;
+  overflow: hidden;
+}
+
+div.mosttripthumb p {
+  width: 168px;
+}
+
+div.mostripthumb p, div.pictorialreportthumb p { /* The caption */
+  margin-top: 2px;
+  background: #efefef;
+  color: #444;
+  font-size: 10px;
+  border-top: 1px solid #cccccc;
+  margin-left: 1px;
+}
+
+p.fullimagecaption {
+    color: white;
+}
+
+div.fullimagepage, div.moduletablepfi {
+    text-align:center;
+}
+
+
+div.mostripthumb img, div.pictorialreportthumb img {
+    border: #446622 solid 1px;
+}
+
+p.imageButtons {
+    padding-top: 12px;
+}
+
+input[type="button"] {
+    border-radius: 5px;
+    padding: 4px;
+}
+
+span.inactiveimagelink, a.imagelink, input.closewindowbutton {
+padding: 4px;
+    color:white;
+    border-radius: 5px;
+    background-color: #404040;
+}
+
+a.tripreportlink {
+    color: #FFFF88;
+}
+
+a.tripreportlink:hover {
+    color: #FFFFFF;
+    background-color: #202020;
+}
+
+span.inactiveimagelink {
+    color: gray;
+    background-color: #202020;
+}
+
+a.imagelink:hover, input.closewindowbutton:hover {
+    background-color:#606060;
+    color: #ffffd0;
+}
+div.mostripthumb a {
+    line-height: 1.0em;  /* Hack to suppress occasional mysterious extra space */
+}
+
+div.frontpageimages {
+    background-color: white;
+}
+
+/* Frontpage image (variant of mostripimage) */
+/** **** CUT ALL THIS FROM HERE .... ****/
+div.frontPageImage {
+  border: 1px solid #ccc;
+  width: 174px;
+  text-align: center;
+  float: left;
+  padding: 2px;
+  margin: 2px;
+  overflow: hidden;
+}
+
+/*
+html>body div.frontPageImage {
+    width: 174px;
+}
+*/
+
+div.frontPageImage a img {
+    border: #669933 solid 1px;
+    width: 170px;
+}
+
+div.frontPageImage p { /* The caption */
+  margin-top: 2px;
+  background: #efefef;
+  color: #666;
+  font-size: 10px;
+  border-top: 1px solid #cccccc;
+  width: 172px;
+  text-align: center;
+  margin-left: 1px;
+}
+
+div.frontPageImage img {
+    border: 1px solid #999;
+}
+
+div.frontPageImage a {
+    border: none
+}
+
+/**** to here (when front page images redone ***/
+
+div.spacer {
+  clear: both;
+}
+
+div.GPXFileList {
+    margin-top: 16px;
+}
+
+div.RouteMapList {
+    margin-top: 16px;
+}
+
+#members td {
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+#members td.col1 {
+    text-align: center;
+}
+
+/* Trip report submission form styles */
+
+form.tripreportform select {
+    border: 1px solid black;
+}
+
+table.imageupload {
+    width: 100%;
+}
+
+table.tripReportFiles th {
+    padding-top:10px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
+
+td.filenameTD {
+    padding: 2px;
+    margin-top: 5px;
+    width: 72%;
+}
+
+table.fileUpload td.input {
+    align: right;
+    text-align: right;
+}
+
+table.fileUpload input {
+    margin: 0;
+}
+
+
+button.changeFile {
+    border: 1px solid;
+    width: 75px;
+}
+
+/* Stuff for sorting resources when editing trip reports */
+.sortable-list {
+    list-style-type: none; margin: 0; padding: 0
+}
+
+.sortable-list li {
+    margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em
+}
+
+.sortable-list li span {
+    position: absolute; margin-left: -1.3em;
+}
+
+.sortableThumb {
+    width: 90px;
+}
+
+td.resource-selector {
+    vertical-align: middle;
+}
+
+.resource-header {
+    font-size: 120%;
+    font-weight: bold;
+    padding-left: 30px;
+    padding-top: 20px;
+    width: 100%;
+}
+
+.resource-header td {
+    width: 50%;
+}
+
+
+td.resource-caption {
+    width: 100%;
+}
+
+.caption-input {
+    width: 100%;
+}
+
+.resource-delete-button {
+    margin-left: 10px;
+    margin-right: 30px;
+}
+
+.dummy-resource-slot {
+    display: none;
+}
+
+
+/* Printable membershiplist styles */
+
+#Members4Printer * {
+    font-family: Times New Roman, serif;
+    font-size: 10pt;
+    color: black;
+    background: white;
+    padding: 0px;
+    padding-left: 4px;
+    padding-right: 4px;
+    border: 0px;
+    margin: 0px;
+    text-align: left;
+}
+
+#Members4Printer p {
+    padding-bottom: 8pt;
+}
+
+#Members4Printer h2 {
+    font-size: 16pt;
+    padding-bottom: 8pt;
+    text-align: center;
+}
+
+#Members4Printer table {
+    border-collapse: collapse;
+    padding-top: 8pt;
+}
+
+#Members4Printer td {
+    border: #ccc solid 1px;
+}
+
+#Members4Printer td.col1, #Members4Printer th.col1 {
+    text-align: center;
+}
+
+
+    /* Loo loo styles */
+
+p.Song {
+    color: #C00;
+    text-align: center;
+}
+
+    p.Comment {
+    color: #171;
+    font-style: italic;
+}
+
+/* Temporary hack for 4-part front page images with 2 vertical
+ * (style mostripthumbv) and two horizontal (style mostripthumbh).
+ * Delete in due course */
+
+div.mostripthumbv {
+    width: 108px;
+}
+
+div.mostripthumbh {
+    width: 140px;
+}
+
+
+div.mostripthumbv, div.mostripthumbh {
+  border: 1px solid #ccc;
+  text-align: center;
+  float: left;
+  padding: 2px;
+  margin: 2px;
+  overflow: hidden;
+}
+
+div.mosttripthumbv p {
+  width: 106px;
+}
+
+div.mosttripthumbh p {
+  width: 138px;
+}
+
+div.mostripthumbv p, div.mostripthumbh p { /* The caption */
+  margin-top: 2px;
+  background: #efefef;
+  color: #444;
+  font-size: 10px;
+  border-top: 1px solid #cccccc;
+  margin-left: 1px;
+}
+
+div.mostripthumbv img, div.mostripthumbh img {
+    border: #446622 solid 1px;
+}
+
+/* End of temporary 4-part front page image styles */
+
 
 
 
@@ -7878,3 +7890,4 @@ code {
     }
 
 }
+

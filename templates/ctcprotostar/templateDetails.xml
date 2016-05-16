@@ -60,7 +60,7 @@
 					label="TPL_PROTOSTAR_BACKGROUND_COLOR_LABEL"
 					description="TPL_PROTOSTAR_BACKGROUND_COLOR_DESC" />
 
-				<field name="logoFile" class="" type="media" default="images/header_bg.jpg"
+				<field name="logoFile" class="" type="media" default=""
 					label="TPL_PROTOSTAR_LOGO_LABEL"
 					description="TPL_PROTOSTAR_LOGO_DESC" />
 					
