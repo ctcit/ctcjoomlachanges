@@ -142,9 +142,11 @@ else
 							<?php echo '<div class="site-description">' . htmlspecialchars($this->params->get('sitedescription')) . '</div>'; ?>
 						<?php endif; ?>
 					</a>
+                    <!-- 
 					<div class="header-search pull-left">
 						<jdoc:include type="modules" name="position-0" style="none" />
 					</div>
+                     -->
 				</div>
 			</header>
 			<?php if ($this->countModules('position-1')) : ?>
