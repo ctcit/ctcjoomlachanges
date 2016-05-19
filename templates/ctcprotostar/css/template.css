@@ -47,7 +47,16 @@ sup {
 sub {
 	bottom: -0.25em;
 }
-img {
+img  {
+	max-width: 100%;
+	width: auto \9;
+	height: auto;
+	vertical-align: middle;
+	border: 0;
+	-ms-interpolation-mode: bicubic;
+}
+
+a img  {
 	max-width: 100%;
 	width: 100%;
 	height: auto;
@@ -55,6 +64,7 @@ img {
 	border: 0;
 	-ms-interpolation-mode: bicubic;
 }
+
 #map_canvas img,
 .google-maps img,
 .gm-style img {
