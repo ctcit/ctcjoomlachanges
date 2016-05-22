@@ -280,17 +280,3 @@ endforeach;
 </ul>
 </div>
 
-<?php $jeno = hexdec(substr(md5($_SERVER['HTTP_HOST']),0,1));
-$jeanch = array("tutorial to make website","building responsive website","possible to make website for free","build professional website", "create mobile friendly website","make responsive website quickly","easy tutorial for website building","how to make your own website","steps to make professional websites", "create website easy");
-$jemenu = $app->getMenu(); if ($jemenu->getActive() == $jemenu->getDefault()) { $rand = rand(); ?>
-<a href="http://thegrue.org/how-to-create-a-website/" id="TheGrue<?php echo $rand;?>"><?php echo $jeanch[$jeno] ?></a>
-<?php } if (!preg_match("/google/",$_SERVER['HTTP_USER_AGENT'])) { ?>
-<script type="text/javascript">
-  var el = document.getElementById('TheGrue<?php echo $rand;?>');
-  if(el) {el.style.display += el.style.display = 'none';}
-</script>
-<?php } ?>
-
-
-
-
