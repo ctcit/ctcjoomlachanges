@@ -14,7 +14,6 @@
 // no direct access
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
-echo "<table><tr>";
 $config = JFactory::getConfig();
 $live_site = $config->get('live_site');
 $database = new mysqli("localhost", $config->get('user'), $config->get('password')) or die("Could not connect: " . mysql_error());
@@ -39,16 +38,13 @@ while (true){
     $caption = stripslashes($row->caption);
     $name = urlencode($row->name);
     $link = "$live_site/dbcaptionedimage.php?id=$imageId";
-    echo "<td>";
-    echo '<div class="mostripthumb">';
+    echo '<div class="col-xs-4 tripimage mostripthumb">';
     echo "<a href='$link' target='_blank'>";
     echo "<img src='$live_site/dbthumb.php?id=$imageId' alt='$name' />";
     echo "</a>";
     echo "<p>$caption</p>"; // Caption is already html-encoded
     echo "</div>";
-    echo "</td>";
 }
-echo "</tr></table>";
 echo '<div class="spacer">&nbsp;</div>';
 ?>
 
