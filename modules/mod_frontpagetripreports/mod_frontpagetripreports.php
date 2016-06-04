@@ -15,7 +15,6 @@
 defined( '_JEXEC') or die( 'Restricted access' );
 
 ?>
-<table><tr>
 <?php
 use Joomla\Registry\Registry;
 $config = JFactory::getConfig();
@@ -25,16 +24,18 @@ $params = new Registry;
 $params->loadString($module->params);
 $width = $params->get("width");
 $height = $params->get("height");
+//$height = 800;
 $maxrecent = $params->get("maxrecent");
 $maxdays = $params->get("maxdays");
 $url = htmlspecialchars($live_site."/tripreports/index.html#/recenttripreports/".$maxrecent ."/".$maxdays);
 ?>
+<div>
 <script>
     jQuery(document).ready(function(){
-        iFrameResize( {log:true} );
+        iFrameResize( {log:false} );
     });
 </script>
-<iframe
+<iframe 
     id="tripreports"
     name="recenttripreports"
     <?php
@@ -44,8 +45,8 @@ $url = htmlspecialchars($live_site."/tripreports/index.html#/recenttripreports/"
     ?>
     scrolling="no"
     frameborder="1"
-    class="tripreport"
+    class="iframewrapper">
 </iframe>
-<div class="spacer">&nbsp;</div>
+</div>
 
 

@@ -25,7 +25,7 @@ defined('_JEXEC') or die;
 <script type="text/javascript" src="<?php echo JFactory::getConfig()->get('live_site');?>/db/scripts/iframeResizer/js/iframeResizer.js"></script>
 <script>
     jQuery(document).ready(function(){
-        iFrameResize( [{log:true}] );
+        iFrameResize( [{log:false}] );
     });
 </script>
     <iframe <?php echo $this->wrapper->load; ?>
@@ -53,7 +53,7 @@ defined('_JEXEC') or die;
         height="<?php echo $this->escape($this->params->get('height')); ?>"
         scrolling="<?php echo $this->escape($this->params->get('scrolling')); ?>"
         frameborder="<?php echo $this->escape($this->params->get('frameborder', 1)); ?>"
-        class="wrapper<?php echo $this->pageclass_sfx; ?>">
+        class="iframewrapper">
         <?php echo JText::_('COM_WRAPPER_NO_IFRAMES'); ?>
     </iframe>
 </div>

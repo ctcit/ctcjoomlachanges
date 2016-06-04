@@ -149,7 +149,7 @@ $doc->addCustomTag('<!--[if lt IE 9]><script src="http://html5shim.googlecode.co
 #gruemenu.grue_<?php echo $module->id ?> ul li > a { font-size:<?php echo $menuFontSize; ?>}
 #gruemenu.grue_<?php echo $module->id ?> ul li.separator > a {font-weight:bold; font-size:<?php echo $menuFontSize + 3; ?>px}/* added drf 2016*/
 #gruemenu.grue_<?php echo $module->id ?> ul li > ul > li > a { font-size:<?php echo $submenuFontSize; ?>!important}
-#gruemenu.grue_<?php echo $module->id ?> > ul li > a { color: <?php echo $menulink; ?>; text-transform:uppercase}
+#gruemenu.grue_<?php echo $module->id ?> > ul li > a { color: <?php echo $menulink; ?>/*; text-transform:uppercase*/}/* removed uppercase drf 2016*/
 #gruemenu.grue_<?php echo $module->id ?> > ul li:hover > a,
 #gruemenu.grue_<?php echo $module->id ?> > ul li > a:hover,
 #gruemenu.grue_<?php echo $module->id ?> > ul li.active > a {color: <?php echo $menulinkhover; ?>; background: <?php echo $menubghover; ?>;}
@@ -161,7 +161,7 @@ $doc->addCustomTag('<!--[if lt IE 9]><script src="http://html5shim.googlecode.co
 #gruemenu.grue_<?php echo $module->id ?> ul ul li.active > a,
 #navigation-toggle:hover {color: <?php echo $menulinkhover; ?>;background:<?php echo $menubghover; ?>;}
 #gruemenu.grue_<?php echo $module->id ?> #menu-button{ color: <?php echo $menulink; ?>; }
-//#gruemenu.grue_<?php echo $module->id ?> ul.section li > a{background-clip: padding-box; -webkit-border-radius: <?php echo $menuradius; ?>px; -moz-border-radius: <?php echo $menuradius; ?>px; -o-border-radius: <?php echo $menuradius; ?>px; border-radius: <?php echo $menuradius; ?>px;  border-radius: <?php echo $menuradius; ?>px;}
+/*#gruemenu.grue_<?php echo $module->id ?> ul.section li > a{background-clip: padding-box; -webkit-border-radius: <?php echo $menuradius; ?>px; -moz-border-radius: <?php echo $menuradius; ?>px; -o-border-radius: <?php echo $menuradius; ?>px; border-radius: <?php echo $menuradius; ?>px;  border-radius: <?php echo $menuradius; ?>px;}*/
 #gruemenu.grue_<?php echo $module->id ?> ul.section > li:first-child > a{border-top-left-radius: <?php echo $menuradius; ?>px; border-top-right-radius: <?php echo $menuradius; ?>px;}
 #gruemenu.grue_<?php echo $module->id ?> ul.section > li:last-child > a{border-bottom-left-radius: <?php echo $menuradius; ?>px; border-bottom-right-radius: <?php echo $menuradius; ?>px;}
 #gruemenu.grue_<?php echo $module->id ?> ul.section ul li:first-child > a { border-top-left-radius: <?php echo $menuradius; ?>px; border-top-right-radius: <?php echo $menuradius; ?>px;}
