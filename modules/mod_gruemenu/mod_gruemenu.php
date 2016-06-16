@@ -11,7 +11,7 @@ defined('_JEXEC') or die;
 
 // Include the syndicate functions only once
 require_once dirname(__FILE__).'/helper.php';
-require_once dirname(__FILE__).'/IsMobile.php';
+require_once dirname(__FILE__).'/Mobile-Detect-2.8.22/Mobile_Detect.php';
 
 $list	= modJEMenuHelper::getList($params);
 $app	= JFactory::getApplication();

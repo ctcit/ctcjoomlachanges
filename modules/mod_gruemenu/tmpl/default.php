@@ -173,8 +173,11 @@ $doc->addCustomTag('<!--[if lt IE 9]><script src="http://html5shim.googlecode.co
 	#gruemenu.grue_<?php echo $module->id ?>.gruefixed { position:fixed; top:0; left:0; width:100%; z-index:9999999}
 <?php } ?>
 /* Enable Mobile Menu */
-<?php if ($params->get('Mobile')) { ?>
-@media screen and (max-width: <?php echo IsMobileDevice() ? '10000': $screenMax ?>px) {
+<?php if ($params->get('Mobile')) { 
+  $detect = new Mobile_Detect;
+  $isMobile = $detect->isMobile();    
+?>
+@media screen and (max-width: <?php echo $isMobile ? '100000': $screenMax ?>px) {
 #navigation-toggle { z-index:999; display:block; position:fixed; top:10px; right:10px; padding:10px 10px; box-shadow:0px 1px 1px rgba(0,0,0,0.15);	border-radius:3px;	text-shadow:0px 1px 0px rgba(0,0,0,0.5); font-size:20px;		transition:color linear 0.15s; text-decoration: none !important; }
 #navigation-toggle span.nav-line { display:block; height:3px; width:20px; margin-bottom:4px; background:#fff}
 #navigation-toggle:hover {text-decoration:none;	}
