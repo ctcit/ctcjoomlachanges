@@ -8,12 +8,12 @@ defined('_JEXEC') or die();
 
 class plgContentLeader extends JPlugin
 {
-    /**
-    * Link bot
-    *
-    * <b>Usage:</b>
-    * <code>{mosleader leader_and_phone}</code>
-    */
+/**
+* Link bot
+*
+* <b>Usage:</b>
+* <code>{mosleader leader_and_phone}</code>
+*/
     public function onContentPrepare($context, &$row, $params, $page = 0){
         if ( strpos( $row->text, 'mosleader' ) === false )  // Quick check
             return true;

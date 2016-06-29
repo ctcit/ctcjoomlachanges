@@ -9,7 +9,7 @@
 	<authorUrl>www.ctc.org.nz</authorUrl>
 	<version>1.1.0</version>
 	<description>Replaces mosnewsletters tag in content with indices to all archived newsletters</description>
-    <license></license>
+        <license></license>
 	<files>
 		<filename plugin="Newsletters">Newsletters.php</filename>
 	</files>
