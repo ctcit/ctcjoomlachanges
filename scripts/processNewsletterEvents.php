@@ -148,7 +148,7 @@ function processEventsTable(){
     mysql_select_db($NEWSLETTER, $con);
     //testing change to just NOW
     //$newsletterEvents = mysql_query("SELECT * from events where date >= DATE_SUB(NOW(), INTERVAL 1 YEAR) order by date");
-    $newsletterEvents = mysql_query("SELECT * from events where date >= NOW() order by date");
+    $newsletterEvents = mysql_query("SELECT * from events where date >= date_sub(NOW(), INTERVAL 1 day) order by date");
     if (!$newsletterEvents) {
         die("**ERROR** Reading of newsletter events table failed: " . mysql_error());
     }
