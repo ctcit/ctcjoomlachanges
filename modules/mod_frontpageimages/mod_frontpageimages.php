@@ -30,6 +30,8 @@ ORDER BY RAND()
 LIMIT 3;
 ";
 $result = $database->query($sql) or die("Invalid query: " . $database->error());
+
+echo "<div class='row-fluid'>\n";
 while (true){
     $row = $result->fetch_object();
     if (!$row)
@@ -38,14 +40,19 @@ while (true){
     $caption = stripslashes($row->caption);
     $name = urlencode($row->name);
     $link = "$live_site/dbcaptionedimage.php?id=$imageId";
-    echo '<div class="col-xs-4 tripimage mostripthumb">';
-    echo "<a href='$link' target='_blank'>";
-    echo "<img src='$live_site/dbthumb.php?id=$imageId' alt='$name' />";
+    echo '<div class="span4 fp-image">';
+    echo '<div class="captioned-thumbnail">';
+    echo "<a href='$live_site/dbcaptionedimage.php?id=$imageId' target='_blank'>";
+    echo "<img class='img-thumbnail' src='$live_site/dbthumb.php?id=$imageId' alt='$name'/>";
     echo "</a>";
-    echo "<p>$caption</p>"; // Caption is already html-encoded
-    echo "</div>";
+    echo "<p class='thumbnail-caption'>$caption</p>"; // Caption is already html-encoded
+    echo "</div>\n";
+    echo "</div>\n";
 }
+echo "</div>\n";
+
 echo '<div class="spacer">&nbsp;</div>';
+
 ?>
 
 

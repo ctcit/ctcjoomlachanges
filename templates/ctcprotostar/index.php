@@ -134,7 +134,7 @@ else
 	<div class="body">
 		<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?>">
 			<!-- Header -->
-			<header class="header" role="banner">
+			<header class="header hidden-tablet hidden-phone" role="banner">
 				<div class="header-inner clearfix">
 					<a class="brand pull-center" href="<?php echo $this->baseurl; ?>/">
 						<?php echo $logo; ?>

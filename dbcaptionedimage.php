@@ -12,7 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1" />
         <title>CTC image</title>
-        <link rel="stylesheet" type="text/css" media="screen" href="../templates/ctcprotostar/css/template.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="./templates/ctcprotostar/css/template.css" />
         <script type='text/javascript'>
             function closeWindow() {
                 window.open('', '_self', '');
@@ -29,7 +29,7 @@
             }
         </script>
     </head>
-    <body style="background-color:black" onload="setHeight()" >
+    <body class='dbcaptionedimage' onload="setHeight()" >
 
         <?php
         require_once './configuration.php';
