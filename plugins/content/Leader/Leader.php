@@ -27,7 +27,7 @@ class plgContentLeader extends JPlugin
         else /* Not logged in */ {
             $replacement = "To see leader contact details, please login. "
             ."If you're not a member, please see the "
-            ."<a href=\"index.php?option=com_contact&catid=12&Itemid=62\">contacts page</a> "
+            ."<a href=\"index.php\contact-us\">contacts page</a> "
             ."and contact the appropriate trip organiser and/or, "
             ."if you're interested in becoming a member, a new members' rep.";
         }
