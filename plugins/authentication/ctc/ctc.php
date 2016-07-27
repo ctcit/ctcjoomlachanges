@@ -55,6 +55,15 @@ class PlgAuthenticationCtc extends JPlugin
             $response->fullname = $result->firstName . ' ' . $result->lastName;
             $response->status = JAuthentication::STATUS_SUCCESS;
             $response->error_message = '';
+            $joomlaUser = JUser::getInstance();
+            $id = (int) JUserHelper::getUserId($credentials['username']);
+            if ($id){
+                // User already in joomla db - ensure name and email are up to date
+                $joomlaUser->load($id);
+		        $joomlaUser->set('name', $response->fullname);
+		        $joomlaUser->set('email', $response->email);
+                $joomlaUser->save();
+            }
         }
         else
         {
@@ -62,17 +71,6 @@ class PlgAuthenticationCtc extends JPlugin
             $response->error_message = 'Invalid username and password';
         }
     }
-    public function onUserAfterLogin($options)
-    {
-        $user = $options['user'];
-        return true;
-    }
-    public function onUserLogout($parameters, $options)
-    {
-        $user = $options['user'];
-        return true;
-    }
-
 
     // Return true iff the plaintext password matches the encrypted version
     // retrieved from the database.
