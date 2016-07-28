@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="1.6.0" group="system" method="upgrade">
+	<name>Allow duplicate Email</name>
+	<author>John Phillips</author>
+	<creationDate>2015-03-24</creationDate>
+	<copyright>Ravenswood IT Services</copyright>
+	<authorEmail>john@ravenswoodit.co.uk</authorEmail>
+	<authorUrl>www.ravenswoodit.co.uk</authorUrl>
+	<version>1.0.5</version>
+	<license>GNU General Public License version 3 or later</license>
+	<description>Allow users to register using a duplicate email address in Joomla 2.5,3.3,3.4,3.5. Based on the users_same_email plugin Copyright (C) 2013 ISS Profesionalia, SL available from www.iss-profesionalia.com
+ </description>
+	<files>
+		<filename plugin="allow_duplicate_email">allow_duplicate_email.php</filename>
+		<filename>index.html</filename>
+		<folder>version</folder>
+	</files>
+	<config>
+	</config>
+	<scriptfile>script.php</scriptfile>
+	<updateservers>
+    <server type="extension" priority="1" name="Ravenswood IT Updates">http://www.ravenswoodit.co.uk/updates/ade.xml</server>
+	</updateservers>
+</extension>
