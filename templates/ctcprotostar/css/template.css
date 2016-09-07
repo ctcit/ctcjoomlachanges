@@ -3204,8 +3204,14 @@ input[type="submit"].btn.btn-mini {
 	*border-left-color: #fff;
 }
 
+div.header-inner {
+    text-align:center;
+    background-color:black;
+}
+
 a.brand img {
-	max-height: 180px;
+    max-height: 180px;
+    max-width: 1000px;
 }
 
 .nav > .disabled > a {

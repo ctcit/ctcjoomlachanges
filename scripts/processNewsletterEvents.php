@@ -25,6 +25,10 @@ function deleteEventContent($eventCategoryId){
 }
 
 function addEvent($catId, $title, $body, $order, $date) {
+    $fromEnc = 'Windows-1252';
+    $body = mb_convert_encoding($body, 'UTF-8', $fromEnc);
+    $title = mb_convert_encoding($title, 'UTF-8', $fromEnc);
+
     $user = JFactory::getUser();
     $tableContent = JTable::getInstance('Content', 'JTable');
     //$tableContent->getDbo()->setDebug(True); // Testing remove this
