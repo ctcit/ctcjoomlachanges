@@ -7410,6 +7410,7 @@ figcaption {
 	}
 	.nav-pills > li {
 		float: none;
+		width: 90%;
 	}
 	.nav-pills > li > a {
 		margin-right: 0;
