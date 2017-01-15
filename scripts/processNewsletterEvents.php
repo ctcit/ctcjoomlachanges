@@ -187,7 +187,7 @@ function processEventsTable(){
             }
             $departurePoint = trim($newsletterEvent['departurePoint']);
             if ($departurePoint == '') {
-                $departurePoint = "Shell Papanui";
+                $departurePoint = "Z Station Papanui";
             }
             addTrip($tripsCatId, ++$tripOrder,
                 $title, $departurePoint, $close, $maps, $newsletterEvent['cost'],
