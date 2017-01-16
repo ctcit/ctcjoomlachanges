@@ -87,19 +87,15 @@ function addEvent($catId, $title, $body, $order, $date) {
 }
 
 function addSocialEvent($catId, $order, $title, $body, $date) {
-    $titleSlashed = addslashes($title);
-    $bodySlashed = addslashes($body);
-    addEvent($catId, $titleSlashed, $bodySlashed, $order, $date);
+    addEvent($catId, $title, $body, $order, $date);
 }
 
-function addTrip($catId, $order, $title, 
+function addTrip($catId, $order, $title,
                  $departurePoint, $close, $maps, $cost, $grade,
                  $leader, $body, $date) {
-    $titleSlashed = addslashes($title);
     $fullBody = "{mosleader $leader}<p>Grade $grade. Map(s) $maps. Approximate cost $cost. " .
                 " List $close.</p><p>Departure Point: $departurePoint</p><p>$body</p>";
-    $bodySlashed = addslashes($fullBody);
-    addEvent($catId, $titleSlashed, $bodySlashed, $order, $date);
+    addEvent($catId, $title, $body, $order, $date);
 }
 
 function my_implode($glue, $data) {
@@ -114,7 +110,7 @@ function my_implode($glue, $data) {
     return $result;
 }
 
-function processEventsTable(){ 
+function processEventsTable(){
     define( '_VALID_MOS', 1 );
     define('_JEXEC', 1);
     define('JPATH_BASE', dirname(__DIR__));// Assume scripts at top level in website
@@ -124,7 +120,7 @@ function processEventsTable(){
     require_once (JPATH_BASE.DIRECTORY_SEPARATOR.'libraries'.DIRECTORY_SEPARATOR.'joomla'.DIRECTORY_SEPARATOR.'date'.DIRECTORY_SEPARATOR.'date.php');
     $app = JFactory::getApplication('site');
     $config = new JConfig();
-    $JOOMLA = "ctcweb34_joom1";
+
     $NEWSLETTER = "ctcweb9_newsletter";
     $options['format'] = '{DATE}\t{TIME}\t{LEVEL}\t{CODE}\t{MESSAGE}';
     $options['text_file'] = 'NewsletterLog.txt';
@@ -149,27 +145,24 @@ function processEventsTable(){
     deleteEventContent($socialCatId);//social
     deleteEventContent($tripsCatId);//trips
 
-    mysql_select_db($NEWSLETTER, $con);
-    //testing change to just NOW
-    //$newsletterEvents = mysql_query("SELECT * from events where date >= DATE_SUB(NOW(), INTERVAL 1 YEAR) order by date");
     $newsletterEvents = mysql_query("SELECT * from events where date >= date_sub(NOW(), INTERVAL 1 day) order by date");
     if (!$newsletterEvents) {
         die("**ERROR** Reading of newsletter events table failed: " . mysql_error());
     }
     $tripOrder = 0;
     $socialOrder = 0;
-    mysql_select_db($JOOMLA, $con);
+
     while ($newsletterEvent = mysql_fetch_array($newsletterEvents, MYSQL_ASSOC)) {
         if ($newsletterEvent['publish'] == 0) {
             continue;
-        }   
+        }
         foreach ($newsletterEvent as $key => $value) {
             printf("%s: %s<br />", $key, $value);
         }
         echo "<br />";
         $dateDisp = $newsletterEvent['dateDisplay'];
         $date = $newsletterEvent['date'];
-        if ($newsletterEvent['datePlus'] != '') 
+        if ($newsletterEvent['datePlus'] != '')
             $dateDisp .= " ".$newsletterEvent['datePlus'];
         $title = "$dateDisp: ".$newsletterEvent['title'];
         $body = $newsletterEvent['text'];
@@ -178,7 +171,7 @@ function processEventsTable(){
         } else if ($newsletterEvent['type'] == 'Trip') {
             $maps = my_implode(", ", array($newsletterEvent['map1'], $newsletterEvent['map2'], $newsletterEvent['map3']));
             $closes = "closes";
-            if ($newsletterEvent['close1'] != "") 
+            if ($newsletterEvent['close1'] != "")
                 $closes = $newsletterEvent['close1'];
             $close = $closes." ".$newsletterEvent['close2'];
             $leader = my_implode(" ", array($newsletterEvent['leader'], $newsletterEvent['leaderplus'], $newsletterEvent['leaderPhone']));
@@ -192,9 +185,9 @@ function processEventsTable(){
             addTrip($tripsCatId, ++$tripOrder,
                 $title, $departurePoint, $close, $maps, $newsletterEvent['cost'],
                 $newsletterEvent['grade'],$leader, $body, $date);
-        } 
+        }
     }
-    
+
     mysql_close($con);
 }
 
