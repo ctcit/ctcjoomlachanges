@@ -95,7 +95,7 @@ function addTrip($catId, $order, $title,
                  $leader, $body, $date) {
     $fullBody = "{mosleader $leader}<p>Grade $grade. Map(s) $maps. Approximate cost $cost. " .
                 " List $close.</p><p>Departure Point: $departurePoint</p><p>$body</p>";
-    addEvent($catId, $title, $body, $order, $date);
+    addEvent($catId, $title, $fullBody, $order, $date);
 }
 
 function my_implode($glue, $data) {
