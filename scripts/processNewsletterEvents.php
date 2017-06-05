@@ -13,7 +13,7 @@ function deleteEventContent($eventCategoryId){
         // As a backup, check core.edit.own
         if (!$user->authorise('core.edit.own', 'com_content.category.'.$eventCategoryId)) {
             // No core.edit nor core.edit.own - bounce this one
-            kill('Error: Not authorised to manage newsletter events');
+            die('Error: Not authorised to manage newsletter events');
         }
     }
     $database = JFactory::getDBO();
