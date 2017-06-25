@@ -12,6 +12,7 @@
     <license></license>
 	<files>
 		<filename plugin="CTCDocs">CTCDocs.php</filename>
+                <filename>ManageDocuments.js</filename>
 	</files>
     <config/>
 </extension>
