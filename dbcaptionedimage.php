@@ -35,9 +35,9 @@
         require_once './configuration.php';
         $config = new JConfig();
         if (isset($_GET['id']) && is_numeric($_GET['id'])) {
-            $link = mysql_connect("localhost", $config->user, $config->password) or die("Could not connect: " . mysql_error());
+            $link = mysqli_connect("localhost", $config->user, $config->password) or die("Could not connect: " . mysqli_error());
 
-            mysql_select_db("ctcweb9_tripreports") or die(mysql_error());
+            mysqli_select_db($link, "ctcweb9_tripreports") or die(mysqli_error($link));
             $id = $_GET['id'];
             $sql = "
 SELECT name, caption, title, tripreport_id
@@ -54,11 +54,11 @@ WHERE  img.id = $id
 AND    trm.map_id = img.id
 AND    tr.id = trm.tripreport_id
 ";
-            $result = mysql_query("$sql");
-            if (!$result || mysql_num_rows($result) != 1) {
-                die("Invalid query: " . mysql_error());
+            $result = mysqli_query($link, "$sql");
+            if (!$result || mysqli_num_rows($result) != 1) {
+                die("Invalid query: " . mysql_error($link));
             }
-            $row = mysql_fetch_object($result);
+            $row = mysqli_fetch_object($result);
 
             // Try to find predecessor and successor images
             $prevIdInMaps = $id - 1;
@@ -76,9 +76,9 @@ FROM  tripreport_map as iThis, tripreport_map as iPrev
 WHERE   iThis.map_id = $id
 AND   iPrev.map_id = $prevIdInMaps
 AND   iThis.tripreport_id = iPrev.tripreport_id";
-            $result = mysql_query("$sql");
-            if ($result && mysql_num_rows($result) == 1) {
-                $prevImg = mysql_fetch_object($result)->prevId;
+            $result = mysqli_query($link, "$sql");
+            if ($result && mysqli_num_rows($result) == 1) {
+                $prevImg = mysqli_fetch_object($result)->prevId;
             }
 
             $sql = "SELECT iNext.image_id as nextId
@@ -94,9 +94,9 @@ FROM  tripreport_map as iThis, tripreport_map as iNext
 WHERE   iThis.map_id = $id
 AND   iNext.map_id = $nextIdInMaps
 AND   iThis.tripreport_id = iNext.tripreport_id";
-            $result = mysql_query("$sql");
-            if ($result && mysql_num_rows($result) == 1) {
-                $nextImg = mysql_fetch_object($result)->nextId;
+            $result = mysqli_query($link, "$sql");
+            if ($result && mysqli_num_rows($result) == 1) {
+                $nextImg = mysqli_fetch_object($result)->nextId;
             }
 
             $spacer = "&nbsp;&nbsp;&nbsp;&nbsp;";
@@ -138,7 +138,7 @@ AND   iThis.tripreport_id = iNext.tripreport_id";
                 </p>
             </div>
                     <?php
-                    mysql_close($link);
+                    mysqli_close($link);
                 }
                 ?>
 
