@@ -116,18 +116,20 @@ function RenameFile(p_root, p_subdir, p_filename){
     dialog.showModal();
 }
 
+var choosefile;
+
 function UploadCTCDocuments(p_root, p_subdir) {
     //choosefile doesn't need to be visible or added to document
-    var choosefile = document.createElement('input');
+    choosefile = document.createElement('input');
     choosefile.type = 'file';
     choosefile.class = 'inputFile';
     choosefile.title = "Choose new document";
-    choosefile.addEventListener('change', DoUpload.bind(null, p_root, p_subdir, choosefile), false);
+    choosefile.addEventListener('change', DoUpload.bind(null, p_root, p_subdir), false);
     choosefile.click();
 }
 
-function DoUpload(p_root, p_subdir, p_choosefile) {
-    var files = p_choosefile.files;
+function DoUpload(p_root, p_subdir) {
+    var files = choosefile.files;
     if (files.size === 0)
         return;
     var formdata = new FormData();

@@ -20,7 +20,11 @@ class plgContentCTCDocs extends JPlugin {
     static $basePath;
     static $liveSite;
     static $editallowed = false;
-
+    
+    static public function escapeApostrophe($value){
+        return  str_replace("'", "\\'", $value);
+    }
+    
     public function makeDocumentIndex($root, $subdir, $sort = ALPHA_SORT) {
         // Makes a list of links to all documents in the given subdirectory
         // of the given root directory. The subdirectory name is used as a level
@@ -37,12 +41,16 @@ class plgContentCTCDocs extends JPlugin {
         $result = '<h2>'; //.
 
         if (plgContentCTCDocs::$editallowed) {
-            $result .= '<button title = "Upload document" onclick="UploadCTCDocuments(\'' . $root . '\',\'' . $subdir . '\')">+</button>' .
-                    ' <progress class="progress' . $subdir . '" style="display:none"></progress> ';
+            $result .= '<button title = "Upload document" onclick="UploadCTCDocuments(\'' 
+                       . plgContentCTCDocs::escapeApostrophe($root) . '\',\'' 
+                       . plgContentCTCDocs::escapeApostrophe($subdir) . '\')">+</button>'
+                       .' <progress class="progress' . $subdir 
+                       . '" style="display:none"></progress> ';
         }
         $result .= $subdir; //.';//</h2><ul>';
         if (plgContentCTCDocs::$editallowed) {
-            $result .= '  <button title = "Rename folder" onclick="RenameDocumentFolder(\'' . $root . '\',\'' . $subdir . '\')">...</button>';
+            $result .= '  <button title = "Rename folder" onclick="RenameDocumentFolder(\'' 
+                       . addslashes($root) . '\',\'' . plgContentCTCDocs::escapeApostrophe($subdir) . '\')">...</button>';
         }
         $result .= '</h2><ul>';
         $lines = array();
@@ -70,8 +78,10 @@ class plgContentCTCDocs extends JPlugin {
             }
             $line = "<li><a href=\"" . plgContentCTCDocs::$liveSite . "/$root/$subdir/$file\" target=\"_blank\">$descr</a>$extra";
             if (plgContentCTCDocs::$editallowed) {
-                $line .= '<button style="width:20px;height:20px;margin:1px 0px 1px 5px; padding: 0px 2px 7px 2px;" title = "Remove file"  onclick="RemoveFile(\'' . $root . '\',\'' . $subdir . '\',\'' . $file . '\')">-</button>';
-                $line .= '<button style="width:20px;height:20px;margin:1px 0px 1px 5px; padding: 0px 2px 7px 2px;" title = "Rename file" " onclick="RenameFile(\'' . $root . '\',\'' . $subdir . '\',\'' . $file . '\')">...</button>';
+                $line .= '<button style="width:20px;height:20px;margin:1px 0px 1px 5px; padding: 0px 2px 7px 2px;" title = "Remove file"  onclick="RemoveFile(\'' 
+                         .plgContentCTCDocs::escapeApostrophe($root) . '\',\'' . plgContentCTCDocs::escapeApostrophe($subdir) . '\',\'' . plgContentCTCDocs::escapeApostrophe($file) . '\')">-</button>';
+                $line .= '<button style="width:20px;height:20px;margin:1px 0px 1px 5px; padding: 0px 2px 7px 2px;" title = "Rename file" " onclick="RenameFile(\'' 
+                         . plgContentCTCDocs::escapeApostrophe($root) . '\',\'' . plgContentCTCDocs::escapeApostrophe($subdir) . '\',\'' . plgContentCTCDocs::escapeApostrophe($file) . '\')">...</button>';
             }
             $line .= "</li>";
             $lines[$key] = $line;
@@ -88,7 +98,7 @@ class plgContentCTCDocs extends JPlugin {
         // Called to process a matching {mostripimage directory} insertion
         //global $mosConfig_absolute_path;
         $user = JFactory::getUser();
-        plgContentCTCDocs::$editallowed = $user->authorise('core.edit');
+        plgContentCTCDocs::$editallowed = isset($user) && $user->authorise('core.edit');
         if (count($match) != 2) {
             return "";
         } else {
@@ -97,7 +107,7 @@ class plgContentCTCDocs extends JPlugin {
                     '<script src="plugins/content/CTCDocs/ManageDocuments.js"></script>' .
                     '<DIALOG class = "InputDialog"><input class = "InputDialogText"></input><button class = "InputDialogOK">OK</button></DIALOG>';
             if (plgContentCTCDocs::$editallowed)
-                $output .= '<button title = "New folder" onclick="NewDocumentFolder(\'' . $param . '\')">+ Folder</button>';
+                $output .= '<button title = "New folder" onclick="NewDocumentFolder(\'' . plgContentCTCDocs::escapeApostrophe($param) . '\')">+ Folder</button>';
 
             $dirname = plgContentCTCDocs::$basePath . DIRECTORY_SEPARATOR . $param;
             if (!file_exists($dirname) || !is_dir($dirname)) {
@@ -148,7 +158,7 @@ class plgContentCTCDocs extends JPlugin {
 
     public function onAjaxManagectcdocuments() {
         $user = JFactory::getUser();
-        if (!$user->authorise('core.edit'))
+        if (!isset($user) || !$user->authorise('core.edit'))
             die("Unauthorised access");
         $data = array('success' => false, 'message' => 'Operation failed');
         if (isset($_POST['action']) && isset($_POST['root']) && is_dir($_POST['root'])) {
