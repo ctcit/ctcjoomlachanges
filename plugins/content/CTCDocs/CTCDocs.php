@@ -14,6 +14,7 @@ defined('_JEXEC') or die();
 
 define('ALPHA_SORT', 0);
 define('LAST_MODIFIED_SORT', 1);
+define('MONTH_NAME_SORT', 2);
 
 class plgContentCTCDocs extends JPlugin {
 
@@ -36,9 +37,11 @@ class plgContentCTCDocs extends JPlugin {
         // and is enclosed in parentheses.
         // Sort order is currently experimental; only call to this uses
         // ALPHA_SORT (the default).
+     	$months = "janfebmaraprmayjunjulaugsepoctnovdec";
+        $keys =   "011010009008007006005004003002001000";
         $dirname = plgContentCTCDocs::$basePath . DIRECTORY_SEPARATOR . $root . DIRECTORY_SEPARATOR . $subdir;
         $dir = opendir($dirname);
-        $result = '<h2>'; //.
+        $result = '<h2>';
 
         if (plgContentCTCDocs::$editallowed) {
             $result .= '<button title = "Upload document" onclick="UploadCTCDocuments(\'' 
@@ -47,10 +50,11 @@ class plgContentCTCDocs extends JPlugin {
                        .' <progress class="progress' . $subdir 
                        . '" style="display:none"></progress> ';
         }
-        $result .= $subdir; //.';//</h2><ul>';
+        $result .= $subdir;
         if (plgContentCTCDocs::$editallowed) {
-            $result .= '  <button title = "Rename folder" onclick="RenameDocumentFolder(\'' 
-                       . addslashes($root) . '\',\'' . plgContentCTCDocs::escapeApostrophe($subdir) . '\')">...</button>';
+            $subdirescaped = plgContentCTCDocs::escapeApostrophe($subdir);
+            $result .= '  <button class="'.$subdirescaped.'" title = "Rename folder" onclick="RenameDocumentFolder(\'' 
+                       . addslashes($root) . '\',\'' . $subdirescaped . '\')">...</button>';
         }
         $result .= '</h2><ul>';
         $lines = array();
@@ -73,7 +77,16 @@ class plgContentCTCDocs extends JPlugin {
             $extra .= " -- $size kB";
             if ($sort === ALPHA_SORT) {
                 $key = $fileBits[0];
-            } else {
+            }else if ($sort === MONTH_NAME_SORT){
+                $key = '012'; //Put it at the bottom if no month
+                for ($month = 0; $month <= 33; $month +=3){
+                    $ipos = strpos(strtolower($file), substr($months, $month, 3));
+                    if ($ipos === FALSE)
+                        continue;
+                    $key = substr($keys, $month, 3).$fileBits[0];
+                    break;
+                }
+             } else {
                 $key = $time;
             }
             $line = "<li><a href=\"" . plgContentCTCDocs::$liveSite . "/$root/$subdir/$file\" target=\"_blank\">$descr</a>$extra";
@@ -95,8 +108,6 @@ class plgContentCTCDocs extends JPlugin {
     }
 
     static public function processDirectory($match) {
-        // Called to process a matching {mostripimage directory} insertion
-        //global $mosConfig_absolute_path;
         $user = JFactory::getUser();
         plgContentCTCDocs::$editallowed = isset($user) && $user->authorise('core.edit');
         if (count($match) != 2) {
@@ -104,8 +115,7 @@ class plgContentCTCDocs extends JPlugin {
         } else {
             $param = $match[1];
             $output = '<script src="media/jui/js/jquery.min.js" type="text/javascript"></script>' .
-                    '<script src="plugins/content/CTCDocs/ManageDocuments.js"></script>' .
-                    '<DIALOG class = "InputDialog"><input class = "InputDialogText"></input><button class = "InputDialogOK">OK</button></DIALOG>';
+                    '<script src="plugins/content/CTCDocs/ManageDocuments.js"></script>';// .
             if (plgContentCTCDocs::$editallowed)
                 $output .= '<button title = "New folder" onclick="NewDocumentFolder(\'' . plgContentCTCDocs::escapeApostrophe($param) . '\')">+ Folder</button>';
 
@@ -133,7 +143,7 @@ class plgContentCTCDocs extends JPlugin {
             }
 
             foreach ($subdirs as $subdir) {
-                $output .= plgContentCTCDocs::makeDocumentIndex($param, $subdir);
+                $output .= plgContentCTCDocs::makeDocumentIndex($param, $subdir, $are_dates ? MONTH_NAME_SORT: ALPHA_SORT);
             }
         }
         return $output;
@@ -156,6 +166,7 @@ class plgContentCTCDocs extends JPlugin {
         return true;
     }
 
+    // Handle incoming documents
     public function onAjaxManagectcdocuments() {
         $user = JFactory::getUser();
         if (!isset($user) || !$user->authorise('core.edit'))
@@ -163,7 +174,7 @@ class plgContentCTCDocs extends JPlugin {
         $data = array('success' => false, 'message' => 'Operation failed');
         if (isset($_POST['action']) && isset($_POST['root']) && is_dir($_POST['root'])) {
             // Assume Ajax call intended for attention here
-            ob_start(); // Buffer any unexpected output
+            ob_start(); // Buffer any unexpected output - hopefully only generated when debugging
             $action = $_POST['action'];
             $root = $_POST['root'];
             $subdir = $_POST['subdir'];
@@ -214,7 +225,7 @@ class plgContentCTCDocs extends JPlugin {
                                      : array('success' => true, 'message' => $newfoldername . ' created');
                 }
             }
-            ob_end_clean(); // Discard any potential output generated internally by php or other ajax handlers
+            ob_end_clean(); // Discard any potential output generated internally by php
             return json_encode($data);
         }
         return "";       

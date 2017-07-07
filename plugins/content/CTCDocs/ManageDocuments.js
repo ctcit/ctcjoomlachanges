@@ -32,7 +32,13 @@ function RemoveFile(p_root, p_subdir, p_filename) {
 function DoRenameDocumentFolder(p_root, p_subdir) {
     // code goes here
     var newname = document.getElementsByClassName("InputDialogText")[0].value;
-    document.getElementsByClassName("InputDialog")[0].close();
+    var dialog = document.getElementsByClassName("InputDialog")[0];
+    try{
+        dialog.close();
+    }catch(err){
+        // Ignore unimplemented dialog element
+    }
+    dialog.parentElement.removeChild(dialog);
     if (p_subdir !== newname) {
         var formdata = new FormData();
         formdata.append('action', 'RenameFolder');
@@ -63,19 +69,56 @@ function DoRenameDocumentFolder(p_root, p_subdir) {
     }
 }
 
+function CancelDialog(){
+    var dialog = document.getElementsByClassName("InputDialog")[0];
+    try{
+        dialog.close();
+    }catch(err){
+        // Ignore unimplemented Dialog
+    }
+    dialog.parentElement.removeChild(dialog);
+    //location.reload(true);
+}
+
+function ShowInputDialog(p_defaulttext, p_okEvent){
+    dialog = document.createElement("DIALOG");
+    namebutton = document.activeElement;
+    namebutton.parentElement.appendChild(dialog);
+    dialog.className = "InputDialog";
+    inputtext = document.createElement("input");
+    inputtext.className = "InputDialogText";
+    okbutton = document.createElement("button");
+    okbutton.className = "InputDialogOK";
+    okbutton.textContent = "OK";
+    cancelbutton = document.createElement("button");
+    cancelbutton.className = "InputDialogCancel";
+    cancelbutton.textContent = "Cancel";
+    dialog.appendChild(inputtext);
+    dialog.appendChild(okbutton);
+    dialog.appendChild(cancelbutton);
+    inputtext.value = p_defaulttext;
+    okbutton.addEventListener('click', p_okEvent /*DoRenameDocumentFolder.bind(null, p_root, p_subdir)*/, false);
+    cancelbutton.addEventListener('click', CancelDialog);
+    try{
+        dialog.showModal();
+    }catch(err){
+        // Ignore for browsers with no dialog implementation        
+    }
+}
+
 function RenameDocumentFolder(p_root, p_subdir){
-    dialog = document.getElementsByClassName("InputDialog")[0];
-    inputtext = document.getElementsByClassName("InputDialogText")[0];
-    inputtext.value = p_subdir;
-    okbutton = document.getElementsByClassName("InputDialogOK")[0];
-    okbutton.addEventListener('click', DoRenameDocumentFolder.bind(null, p_root, p_subdir), false);
-    dialog.showModal();
+   ShowInputDialog(p_subdir, DoRenameDocumentFolder.bind(null, p_root, p_subdir));
 }
 
 function DoRenameFile(p_root, p_subdir, p_filename) {
     dialog = document.getElementsByClassName("InputDialog")[0];
     var newname = document.getElementsByClassName("InputDialogText")[0].value;
-    dialog.close();
+    try{
+        dialog.close();
+    }catch(err){
+        // Ignore for browsers with no dialog implementation        
+    }
+    
     if (p_filename !== newname) {
         var formdata = new FormData();
         formdata.append('action', 'RenameFile');
@@ -108,23 +151,21 @@ function DoRenameFile(p_root, p_subdir, p_filename) {
 }
 
 function RenameFile(p_root, p_subdir, p_filename){
-    dialog = document.getElementsByClassName("InputDialog")[0];
-    inputtext = document.getElementsByClassName("InputDialogText")[0];
-    inputtext.value = p_filename;
-    okbutton = document.getElementsByClassName("InputDialogOK")[0];
-    okbutton.addEventListener('click', DoRenameFile.bind(null, p_root, p_subdir, p_filename), false);
-    dialog.showModal();
+    ShowInputDialog(p_filename, DoRenameFile.bind(null, p_root, p_subdir, p_filename));
 }
 
 var choosefile;
 
 function UploadCTCDocuments(p_root, p_subdir) {
-    //choosefile doesn't need to be visible or added to document
+    //choosefile doesn't need to be visible
     choosefile = document.createElement('input');
     choosefile.type = 'file';
     choosefile.class = 'inputFile';
     choosefile.title = "Choose new document";
+    choosefile.style = "display:none";
     choosefile.addEventListener('change', DoUpload.bind(null, p_root, p_subdir), false);
+    uploadbutton = document.activeElement;
+    uploadbutton.parentElement.appendChild(choosefile);
     choosefile.click();
 }
 
@@ -189,9 +230,13 @@ function DoUpload(p_root, p_subdir) {
 }
 
 function DoNewDocumentFolder(p_root) {
-    // code goes here
+    dialog = document.getElementsByClassName("InputDialog")[0];
     var newname = document.getElementsByClassName("InputDialogText")[0].value;
-    document.getElementsByClassName("InputDialog")[0].close();
+    try{
+        dialog.close();
+    }catch(err){
+        // Ignore for browsers with no dialog implementation        
+    }
     var formdata = new FormData();
     formdata.append('action', 'NewFolder');
     formdata.append('root', p_root);
@@ -220,12 +265,7 @@ function DoNewDocumentFolder(p_root) {
 }
 
 function NewDocumentFolder(p_root){
-    dialog = document.getElementsByClassName("InputDialog")[0];
-    inputtext = document.getElementsByClassName("InputDialogText")[0];
-    inputtext.value = '';
-    okbutton = document.getElementsByClassName("InputDialogOK")[0];
-    okbutton.addEventListener('click', DoNewDocumentFolder.bind(null, p_root), false);
-    dialog.showModal();
+    ShowInputDialog("", DoNewDocumentFolder.bind(null, p_root));
 }
 ;
 
