@@ -117,7 +117,7 @@ function processEventsTable(){
     require_once( JPATH_BASE.DIRECTORY_SEPARATOR.'includes'.DIRECTORY_SEPARATOR.'defines.php' );
     require_once (JPATH_BASE.DIRECTORY_SEPARATOR.'includes'.DIRECTORY_SEPARATOR.'framework.php');
     require_once (JPATH_BASE.DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'com_content'.DIRECTORY_SEPARATOR.'models'.DIRECTORY_SEPARATOR.'article.php');
-    require_once (JPATH_BASE.DIRECTORY_SEPARATOR.'libraries'.DIRECTORY_SEPARATOR.'joomla'.DIRECTORY_SEPARATOR.'date'.DIRECTORY_SEPARATOR.'date.php');
+    //require_once (JPATH_BASE.DIRECTORY_SEPARATOR.'libraries'.DIRECTORY_SEPARATOR.'joomla'.DIRECTORY_SEPARATOR.'date'.DIRECTORY_SEPARATOR.'date.php');
     $app = JFactory::getApplication('site');
     $config = new JConfig();
 
