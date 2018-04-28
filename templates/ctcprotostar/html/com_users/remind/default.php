@@ -8,5 +8,4 @@
  */
 
 defined('_JEXEC') or die;
-ob_clean();
 header("Location: index.php/forgotten-username");
