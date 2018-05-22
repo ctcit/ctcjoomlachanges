@@ -3,13 +3,13 @@
     if(isset($_GET['id']) && is_numeric($_GET['id'])) {
         require_once './configuration.php';
         $config = new JConfig();
-        $db = new mysqli("localhost", $config->user, $config->password);
+        $db = new mysqli($config->host, $config->user, $config->password);
         if (!$db) {
             die("Could not connect: " . $db->error());
         }
- 
+
         $db->select_db("ctcweb9_tripreports") or die($db->error());
-        
+
         $id = $_GET['id'];
 
         $sql = "SELECT image, type FROM image WHERE id=$id";
@@ -21,4 +21,3 @@
         $db->close();
     }
 ?>
-

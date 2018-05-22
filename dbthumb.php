@@ -5,14 +5,14 @@
         //connect to the db
         require_once './configuration.php';
         $config = new JConfig();
-        $db = new mysqli("localhost", $config->user, $config->password);
+        $db = new mysqli($config->host, $config->user, $config->password);
         if (!$db) {
             die("Could not connect: " . $db->error());
         }
 
         // select our database
         $db->select_db("ctcweb9_tripreports") or die($db->error());
-        
+
         $id = $_GET['id'];
 
         // get the image from the db
@@ -21,11 +21,11 @@
 
         // set the header for the image
         header("Content-type: image/jpeg");
-        
+
         // Echo the actual thumbnail (a blob)
         $row = $result->fetch_row();
         echo $row[0];
-        
+
         // close the db link
         $db->close();
     }

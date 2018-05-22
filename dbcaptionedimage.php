@@ -35,7 +35,7 @@
         require_once './configuration.php';
         $config = new JConfig();
         if (isset($_GET['id']) && is_numeric($_GET['id'])) {
-            $link = mysqli_connect("localhost", $config->user, $config->password) or die("Could not connect: " . mysqli_error());
+            $link = mysqli_connect($config->host, $config->user, $config->password) or die("Could not connect: " . mysqli_error());
 
             mysqli_select_db($link, "ctcweb9_tripreports") or die(mysqli_error($link));
             $id = $_GET['id'];
