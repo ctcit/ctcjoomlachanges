@@ -43,7 +43,7 @@ while (true){
     echo '<div class="span4 fp-image">';
     echo '<div class="captioned-thumbnail">';
     echo "<a href='$live_site/dbcaptionedimage.php?id=$imageId' target='_blank'>";
-    echo "<img class='img-thumbnail' src='$live_site/dbimage.php?id=$imageId' alt='$name'/>";
+    echo "<img class='img-thumbnail' src='$live_site/dbthumb.php?id=$imageId' alt='$name'/>";
     echo "</a>";
     echo "<p class='thumbnail-caption'>$caption</p>"; // Caption is already html-encoded
     echo "</div>\n";
