@@ -16,7 +16,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 
 $config = JFactory::getConfig();
 $live_site = $config->get('live_site');
-$database = new mysqli("localhost", $config->get('user'), $config->get('password')) or die("Could not connect: " . mysql_error());
+$database = new mysqli($config->get('host'), $config->get('user'), $config->get('password')) or die("Could not connect: " . mysql_error());
 // select our database
 $database->select_db("ctcweb9_tripreports") or die($db->error());
 // Select a random set of images with roughly 4:3 aspect ratio and shortish captions
@@ -43,7 +43,7 @@ while (true){
     echo '<div class="span4 fp-image">';
     echo '<div class="captioned-thumbnail">';
     echo "<a href='$live_site/dbcaptionedimage.php?id=$imageId' target='_blank'>";
-    echo "<img class='img-thumbnail' src='$live_site/dbthumb.php?id=$imageId' alt='$name'/>";
+    echo "<img class='img-thumbnail' src='$live_site/dbimage.php?id=$imageId' alt='$name'/>";
     echo "</a>";
     echo "<p class='thumbnail-caption'>$caption</p>"; // Caption is already html-encoded
     echo "</div>\n";
@@ -54,5 +54,3 @@ echo "</div>\n";
 echo '<div class="spacer">&nbsp;</div>';
 
 ?>
-
-
