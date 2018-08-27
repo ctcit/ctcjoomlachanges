@@ -1,6 +1,13 @@
+"""Python script to traverse the subtree of files rooted at '.'
+   comparing all files with those rooted at ../public_html/,
+   Print a message for all modified or new files.
+   Run with 'python3 checkforupdates.py'
+   Richard Lobb, last modified 3 June 2018.
+"""
 import os, filecmp
 
-TARGET = '/var/www/html/ctc/'
+#TARGET = '/var/www/html/ctc/'
+TARGET = '../public_html/'
 
 def check(path):
     rel_path = path[2:]
@@ -24,3 +31,4 @@ def main():
     process_subtree('.')
 
 main()
+
