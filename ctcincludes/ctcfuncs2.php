@@ -47,9 +47,9 @@ function getMembershipListQuery($surnameFirst = false)
 // of the form Bloggs, Fred.
 {
 	$host = 'localhost';
-	$user = 'ctcweb9_visitor';
+	$user = 'visitor';
 	$password = 'highonhills';
-	$dbase = 'ctcweb9_ctc';
+	$dbase = 'ctc';
 	$dbprefix = '';
 	$conn = mysql_connect($host, $user, $password);
 	$db = mysql_select_db($dbase);

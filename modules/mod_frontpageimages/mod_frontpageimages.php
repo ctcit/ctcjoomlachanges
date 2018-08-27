@@ -18,7 +18,7 @@ $config = JFactory::getConfig();
 $live_site = $config->get('live_site');
 $database = new mysqli($config->get('host'), $config->get('user'), $config->get('password')) or die("Could not connect: " . mysql_error());
 // select our database
-$database->select_db("ctcweb9_tripreports") or die($db->error());
+$database->select_db("tripreports") or die($db->error());
 // Select a random set of images with roughly 4:3 aspect ratio and shortish captions
 $sql = "
 SELECT id, caption, name

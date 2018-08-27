@@ -37,7 +37,7 @@
         if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             $link = mysqli_connect($config->host, $config->user, $config->password) or die("Could not connect: " . mysqli_error());
 
-            mysqli_select_db($link, "ctcweb9_tripreports") or die(mysqli_error($link));
+            mysqli_select_db($link, "tripreports") or die(mysqli_error($link));
             $id = $_GET['id'];
             $sql = "
 SELECT name, caption, title, tripreport_id

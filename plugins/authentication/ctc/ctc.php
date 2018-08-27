@@ -32,7 +32,7 @@ class PlgAuthenticationCtc extends JPlugin
         $db = JFactory::getDbo();
         $query  = $db->getQuery(true)
         ->select('*')
-        ->from('ctcweb9_ctc.members')
+        ->from('ctc.members')
         ->where('loginname=' . $db->quote($credentials['username']));
 
         $db->setQuery($query);

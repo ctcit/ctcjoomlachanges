@@ -8,7 +8,7 @@
             die("Could not connect: " . $db->error());
         }
 
-        $db->select_db("ctcweb9_tripreports") or die($db->error());
+        $db->select_db("tripreports") or die($db->error());
 
         $id = $_GET['id'];
 

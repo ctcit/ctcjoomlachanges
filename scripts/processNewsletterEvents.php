@@ -121,7 +121,7 @@ function processEventsTable(){
     $app = JFactory::getApplication('site');
     $config = new JConfig();
 
-    $NEWSLETTER = "ctcweb9_newsletter";
+    $NEWSLETTER = "newsletter";
     $options['format'] = '{DATE}\t{TIME}\t{LEVEL}\t{CODE}\t{MESSAGE}';
     $options['text_file'] = 'NewsletterLog.txt';
     JLog::addLogger($options, JLog::ALL, array('Update', 'databasequery', 'jerror'));

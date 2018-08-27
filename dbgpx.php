@@ -6,7 +6,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
 
 	$link = mysql_connect("localhost", $config->user, $config->password) or die("Could not connect: " . mysql_error());
 
-	mysql_select_db("ctcweb9_tripreports") or die(mysql_error());
+	mysql_select_db("tripreports") or die(mysql_error());
 
 	$id = $_GET['id'];
 
