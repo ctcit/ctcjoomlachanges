@@ -41,7 +41,7 @@ defined('_JEXEC') or die;
                 if (stripos($location, 'tripreports') !== false)
                   $url = $live_site.'/tripreports/index.html#/'.$location;
                 else if (stripos($location, 'showtrip') !== false)
-                  $url = $live_site.'/tripsignup/index.html#/'.$location;
+                  $url = $live_site.'/trips/index.html#/'.$location;
             }
             if (substr($url, 0, 1) == '/') {
                 // Use live site to resolve relative url
