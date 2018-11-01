@@ -25,7 +25,8 @@ defined('_JEXEC') or die;
 <script type="text/javascript" src="<?php echo JFactory::getConfig()->get('live_site');?>/db/scripts/iframeResizer/js/iframeResizer.js"></script>
 <script>
     jQuery(document).ready(function(){
-        iFrameResize( [{log:false}] );
+        var isOldIE = (navigator.userAgent.indexOf("MSIE") !== -1); // Detect IE10 and below
+        iFrameResize( [{log:false, heightCalculationMethod: isOldIE ? 'max' : 'lowestElement'}] );
     });
 </script>
     <iframe <?php echo $this->wrapper->load; ?>

@@ -4,19 +4,19 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
     require_once './configuration.php';
     $config = new JConfig();
 
-	$link = mysql_connect("localhost", $config->user, $config->password) or die("Could not connect: " . mysql_error());
+	$db = new mysqli("localhost", $config->user, $config->password) or die("Could not connect to database: ". $db->connect_error);
 
-	mysql_select_db("ctcweb9_tripreports") or die(mysql_error());
+	$db->select_db("ctcweb9_tripreports") or die('Failed to select database ctcweb9_tripreports');
 
 	$id = $_GET['id'];
 
 	$sql = "SELECT gpx, name FROM gpx WHERE id=$id";
-	$result = mysql_query($sql) or die(mysql_error());
-	($row = mysql_fetch_object($result)) or die(mysql_error());
+	$result = $db->query($sql) or die('db query failed: ' . $db->error);
+	($row = $result->fetch_object()) or die('Missing GPX record');
 	header("Content-Disposition: attachment; filename=\"{$row->name}\"");
 	header("Content-Type: text/gpx");
 	echo $row->gpx;
 
-	mysql_close($link);
+	$db->close();
 }
-?>
+

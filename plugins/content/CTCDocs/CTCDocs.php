@@ -26,7 +26,7 @@ class plgContentCTCDocs extends JPlugin {
         return  str_replace("'", "\\'", $value);
     }
     
-    public function makeDocumentIndex($root, $subdir, $sort = ALPHA_SORT) {
+    static public function makeDocumentIndex($root, $subdir, $sort = ALPHA_SORT) {
         // Makes a list of links to all documents in the given subdirectory
         // of the given root directory. The subdirectory name is used as a level
         // 2 header. Files within the given directory are assumed to have

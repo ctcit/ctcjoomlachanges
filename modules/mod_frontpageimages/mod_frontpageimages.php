@@ -16,7 +16,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 
 $config = JFactory::getConfig();
 $live_site = $config->get('live_site');
-$database = new mysqli("localhost", $config->get('user'), $config->get('password')) or die("Could not connect: " . mysql_error());
+$database = new mysqli($config->get('host'), $config->get('user'), $config->get('password')) or die("Could not connect: " . mysql_error());
 // select our database
 $database->select_db("ctcweb9_tripreports") or die($db->error());
 // Select a random set of images with roughly 4:3 aspect ratio and shortish captions
@@ -54,5 +54,3 @@ echo "</div>\n";
 echo '<div class="spacer">&nbsp;</div>';
 
 ?>
-
-

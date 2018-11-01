@@ -59,14 +59,20 @@ class PlgAuthenticationCtc extends JPlugin
             $id = (int) JUserHelper::getUserId($credentials['username']);
             if ($id){
                 // User already in joomla db - ensure name and email are up to date
+                // Could update other stuff here if necessary
                 $joomlaUser->load($id);
 		        $joomlaUser->set('name', $response->fullname);
 		        $joomlaUser->set('email', $response->email);
                 $joomlaUser->save();
+            }else{
+                // Make user in Joomla
+  		        $joomlaUser->set('name', $response->fullname);
+		        $joomlaUser->set('email', $response->email);
+                $joomlaUser->set('username', $credentials['username']);
+                $joomlaUser->groups['REGISTERED'] = 2;
+                $joomlaUser->save();
             }
-        }
-        else
-        {
+        }else{
             $response->status = JAuthentication::STATUS_FAILURE;
             $response->error_message = 'Invalid username and password';
         }
@@ -77,6 +83,10 @@ class PlgAuthenticationCtc extends JPlugin
     function passwordsMatch($rawpassword, $dbpassword)
     {
         $bits = explode(':', $dbpassword);
+        if ($rawpassword === '' && $dbpassword === '')
+            // This can only happen via direct db intervention
+            // Intended for use when a passwork cannot be retrieved by any UI means
+            return TRUE;
         if (count($bits) != 2) {
             return FALSE;
         }
