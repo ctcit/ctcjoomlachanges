@@ -6,7 +6,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
 
 	$db = new mysqli("localhost", $config->user, $config->password) or die("Could not connect to database: ". $db->connect_error);
 
-	$db->select_db("tripreports") or die('Failed to select database ctcweb9_tripreports');
+	$db->select_db("tripreports") or die('Failed to select database tripreports');
 
 	$id = $_GET['id'];
 
