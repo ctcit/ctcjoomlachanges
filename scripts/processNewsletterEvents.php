@@ -25,10 +25,6 @@ function deleteEventContent($eventCategoryId){
 }
 
 function addEvent($catId, $title, $body, $order, $date) {
-    $fromEnc = 'Windows-1252';
-    $body = mb_convert_encoding($body, 'UTF-8', $fromEnc);
-    $title = mb_convert_encoding($title, 'UTF-8', $fromEnc);
-
     $user = JFactory::getUser();
     $tableContent = JTable::getInstance('Content', 'JTable');
     //$tableContent->getDbo()->setDebug(True); // Testing remove this
@@ -129,15 +125,16 @@ function processEventsTable(){
     // Hard code Ids as safest "Magic" constant
     $socialCatId = 32;
     $tripsCatId = 29;
-    $con = mysql_connect($config->host, $config->user, $config->password);
+    $con = mysqli_connect($config->host, $config->user, $config->password);
     if (!$con)  {
         echo('Could not connect: ' . mysql_error());
         return;
     }
+    $con->set_charset('utf8mb4');
     // First, make sure we have some newsletter events to process
-    mysql_select_db($NEWSLETTER, $con);
-    $result = mysql_query("SELECT * from events");
-    $row = mysql_fetch_array($result);
+    $con->select_db($NEWSLETTER);
+    $result = $con->query("SELECT * from events");
+    $row = mysqli_fetch_array($result);
     if (!$result || !$row) {
         echo "**ERROR**: No events found";
         return;
@@ -145,14 +142,14 @@ function processEventsTable(){
     deleteEventContent($socialCatId);//social
     deleteEventContent($tripsCatId);//trips
 
-    $newsletterEvents = mysql_query("SELECT * from events where date >= date_sub(NOW(), INTERVAL 1 day) order by date");
+    $newsletterEvents = $con->query("SELECT * from events where date >= date_sub(NOW(), INTERVAL 1 day) order by date");
     if (!$newsletterEvents) {
-        die("**ERROR** Reading of newsletter events table failed: " . mysql_error());
+        die("**ERROR** Reading of newsletter events table failed: " . $con->error());
     }
     $tripOrder = 0;
     $socialOrder = 0;
 
-    while ($newsletterEvent = mysql_fetch_array($newsletterEvents, MYSQL_ASSOC)) {
+    while ($newsletterEvent = mysqli_fetch_array($newsletterEvents)) {
         if ($newsletterEvent['publish'] == 0) {
             continue;
         }
@@ -188,7 +185,7 @@ function processEventsTable(){
         }
     }
 
-    mysql_close($con);
+    $con->close();
 }
 
 
