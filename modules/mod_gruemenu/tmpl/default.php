@@ -28,7 +28,7 @@ $screenMax = $params->get('screenMax','720');
 // write to header
 
 $doc = JFactory::getDocument();
-$doc->addStyleSheet( 'http://fonts.googleapis.com/css?family='.$fontStyle.'');
+$doc->addStyleSheet( 'https://fonts.googleapis.com/css?family='.$fontStyle.'');
 $doc->addStyleSheet($modURL.'/css/styles.css');
 $fontStyle = str_replace("+"," ",$fontStyle);
 $fontStyle = explode(":",$fontStyle);
