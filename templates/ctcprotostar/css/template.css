@@ -7751,14 +7751,14 @@ td.resource-caption {
 }
 
 
-    /* Loo loo styles */
+/* Loo loo styles */
 
 p.Song {
     color: #C00;
     text-align: center;
 }
 
-    p.Comment {
+p.Comment {
     color: #171;
     font-style: italic;
 }
@@ -7793,11 +7793,8 @@ p.Song {
     #Members4Printer td.col1, #Members4Printer th.col1 {
         text-align: center;
     }
-    
-
 }
 
-    .iframewrapper{
-        border-style: solid;
-        border-color: lightgray;
-    }
+.iframewrapper{
+	border-style: none;
+}
