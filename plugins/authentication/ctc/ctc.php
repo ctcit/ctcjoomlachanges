@@ -32,27 +32,27 @@ class PlgAuthenticationCtc extends JPlugin
         $db = JFactory::getDbo();
         $query  = $db->getQuery(true)
         ->select('*')
-        ->from('ctc.members')
-        ->where('loginname=' . $db->quote($credentials['username']));
+        ->from('ctc.view_members_auth')
+        ->where('loginName=' . $db->quote($credentials['username']));
 
         $db->setQuery($query);
         $result = $db->loadObject();
 
-        if (!$result) {
-            $response->status = STATUS_FAILURE;
-            $response->error_message = 'User does not exist';
-            return;
-        }
-
         /**
-         * Check the password
+         * Check the password and that the membership is 'Active'
          */
 
         $pass = $credentials['password'];
-        if($result && $this->passwordsMatch($pass, $result->joomlaPasswordAdmin))
+        if( (!$result) || (!$this->passwordsMatch($pass, $result->joomlaPasswordAdmin)))
         {
+            $response->status = JAuthentication::STATUS_FAILURE;
+            $response->error_message = 'Invalid username and password';
+        } else if ( $result->status != "Active") {
+            $response->status = JAuthentication::STATUS_FAILURE;
+            $response->error_message = 'Sorry, your CTC membership is not currently active. If you think this is incorrect, please contact treasurer@ctc.org.nz';
+        } else {
             $response->email = $result->primaryEmail;
-            $response->fullname = $result->firstName . ' ' . $result->lastName;
+            $response->fullname = $result->fullName;
             $response->status = JAuthentication::STATUS_SUCCESS;
             $response->error_message = '';
             $joomlaUser = JUser::getInstance();
@@ -72,9 +72,6 @@ class PlgAuthenticationCtc extends JPlugin
                 $joomlaUser->groups['REGISTERED'] = 2;
                 $joomlaUser->save();
             }
-        }else{
-            $response->status = JAuthentication::STATUS_FAILURE;
-            $response->error_message = 'Invalid username and password';
         }
     }
 
