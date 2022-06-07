@@ -58,7 +58,7 @@
 				<field
 					name="maxrecent"
 					type="text"
-					default="10"
+					default="6"
 					label="Max recent trips on front page"
 					description="Enter max" />
 				<field

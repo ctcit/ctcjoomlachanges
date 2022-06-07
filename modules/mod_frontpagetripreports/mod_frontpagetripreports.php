@@ -26,8 +26,7 @@ $width = $params->get("width");
 $height = $params->get("height");
 //$height = 800;
 $maxrecent = $params->get("maxrecent");
-$maxdays = $params->get("maxdays");
-$url = htmlspecialchars($live_site."/tripreports/index.html#/recenttripreports/".$maxrecent ."/".$maxdays);
+$url = htmlspecialchars($live_site."/tripreports/index.html#/recenttripreportcards/".$maxrecent);
 ?>
 <div>
 <script>
