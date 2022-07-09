@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.9" type="template">
+	<name>ctctemplate</name>
+	<creationDate>2019-07-08</creationDate>
+	<author>Nick Edwards</author>
+	<authorEmail>nickedwrds@gmail.com</authorEmail>
+	<copyright>Christchurch Tramping Club</copyright>
+	<license>GNU/GPL</license>
+	<version>1.0.1</version>
+	<description>New CTC Template</description>
+	<files>
+		<filename>index.php</filename>
+		<filename>templateDetails.xml</filename>
+		<filename>template.asset.json</filename>
+		<folder>images</folder>
+		<folder>css</folder>
+		<folder>html</folder>
+	</files>
+	<positions>
+		<position>user-menu</position>
+		<position>menu</position>
+		<position>message</position>
+		<position>component</position>
+		<position>trip-reports</position>
+		<position>upcoming-trips</position>
+		<position>home-welcome</position>
+		<position>home-links</position>
+		<position>home-images</position>
+		<position>footer</position>
+	</positions>
+</extension>
