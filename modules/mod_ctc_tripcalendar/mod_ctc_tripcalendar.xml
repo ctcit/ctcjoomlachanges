@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" client="site" method="upgrade">
-	<name>mod_ctc_tripcalendar</name>
+	<name>CTC Trip Calendar</name>
 	<author>Nick Edwards</author>
 	<creationDate>June 2022</creationDate>
 	<copyright>(C) 2005 Open Source Matters, Inc.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>nickedwrds@gmail.com</authorEmail>
 	<authorUrl></authorUrl>
-	<version>0.0.1</version>
+	<version>0.0.2</version>
 	<description>CTC Trip Calendar</description>
-	<namespace path="src">Joomla\Module\TripCalendar</namespace>
+	<namespace path="src">Joomla\Module\CtcTripCalendar</namespace>
 	<files>
 		<filename module="mod_ctc_tripcalendar">mod_ctc_tripcalendar.php</filename>
 		<folder>src</folder>

@@ -7,7 +7,7 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace Joomla\Module\TripCalendar\Site\Helper;
+namespace Joomla\Module\CtcTripCalendar\Site\Helper;
 
 \defined('_JEXEC') or die;
 
@@ -21,7 +21,7 @@ use Joomla\Component\Content\Site\Helper\RouteHelper;
  *
  * @since  1.5
  */
-class TripCalendarHelper
+class CtcTripCalendarHelper
 {
 	private const MonthFormat = 'F';
 
@@ -58,44 +58,44 @@ class TripCalendarHelper
 				continue;
 			}
 			if ($trip->isSocial) {
-				if (TripCalendarHelper::$Social == null) {
-					TripCalendarHelper::$Social = $trip;
+				if (CtcTripCalendarHelper::$Social == null) {
+					CtcTripCalendarHelper::$Social = $trip;
 				}
 			} else if ($tripCount < $params->get('maximumTrips')) {
-				$trip->type = TripCalendarHelper::tripType(($trip->length));
+				$trip->type = CtcTripCalendarHelper::tripType(($trip->length));
 				if ($date->format('Y-m') == $currentMonth->format('Y-m')) {
 					$currentMonthsTrips[] = $trip;
 				} else if ($date->format('Y-m') <= $lastMonth->format('Y-m')) {
-					$sortedTrips[$currentMonth->format(TripCalendarHelper::MonthFormat)] = $currentMonthsTrips;
+					$sortedTrips[$currentMonth->format(CtcTripCalendarHelper::MonthFormat)] = $currentMonthsTrips;
 					$currentMonth = $currentMonth->modify("+1 month");
 					$currentMonthsTrips = [];
 					$currentMonthsTrips[] = $trip;
 				} else {
-					$sortedTrips[$currentMonth->format(TripCalendarHelper::MonthFormat)] = $currentMonthsTrips;
+					$sortedTrips[$currentMonth->format(CtcTripCalendarHelper::MonthFormat)] = $currentMonthsTrips;
 					break;
 				}
 				$tripCount++;
 			}
 		}
-		$sortedTrips[$currentMonth->format(TripCalendarHelper::MonthFormat)] = $currentMonthsTrips;
-		TripCalendarHelper::$Trips = $sortedTrips;
+		$sortedTrips[$currentMonth->format(CtcTripCalendarHelper::MonthFormat)] = $currentMonthsTrips;
+		CtcTripCalendarHelper::$Trips = $sortedTrips;
 	}
 
 	public static function overdueTripsUrl(&$params) : string
 	{
-		return TripCalendarHelper::linkToArticle($params->get('overdueArticle'));
+		return CtcTripCalendarHelper::linkToArticle($params->get('overdueArticle'));
 	}
 
 	public static function publicTripCalendarUrl(&$params) : string
 	{
 		// Really, these need to be links to menu items
-		return TripCalendarHelper::linkToArticle($params->get('publicTripCalendarArticle'));
+		return CtcTripCalendarHelper::linkToArticle($params->get('publicTripCalendarArticle'));
 	}
 
 	public static function publicSocialCalendarUrl(&$params) : string
 	{
 		// Really, these need to be links to menu items
-		return TripCalendarHelper::linkToArticle($params->get('publicSocialCalendarArticle'));
+		return CtcTripCalendarHelper::linkToArticle($params->get('publicSocialCalendarArticle'));
 	}
 
 	private static function tripType($length) : string
