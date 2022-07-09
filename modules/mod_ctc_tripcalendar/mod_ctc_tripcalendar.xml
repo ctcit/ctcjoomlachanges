@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" client="site" method="upgrade">
+	<name>mod_ctc_tripcalendar</name>
+	<author>Nick Edwards</author>
+	<creationDate>June 2022</creationDate>
+	<copyright>(C) 2005 Open Source Matters, Inc.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>nickedwrds@gmail.com</authorEmail>
+	<authorUrl></authorUrl>
+	<version>0.0.1</version>
+	<description>CTC Trip Calendar</description>
+	<namespace path="src">Joomla\Module\TripCalendar</namespace>
+	<files>
+		<filename module="mod_ctc_tripcalendar">mod_ctc_tripcalendar.php</filename>
+		<folder>src</folder>
+		<folder>tmpl</folder>
+	</files>
+	<languages>
+	</languages>
+	<help key="Site_Modules:_tripcalendar" />
+	<config>
+		<fields name="params">
+			<fieldset name="basic" addfieldprefix="Joomla\Component\Menus\Administrator\Field">
+				<field
+					name="monthsToShow"
+					type="number"
+					label="Number of months of trips"
+					default="2"
+					filter="integer"
+					/>
+				<field
+					name="maximumTrips"
+					type="number"
+					label="Maxmimum number of trips"
+					default="10"
+					filter="integer"
+					/>
+				<field
+					name="apiUrl"
+					type="text"
+					label="Triphub API URL"
+					default="https://ctc.org.nz/triphub/api/api.php"
+					/>
+				<field
+					name="publicTripCalendarUrl"
+					type="text"
+					label="Public Trip Calendar URL"
+					default="index.php/trips-socials/trip-calendar-2"
+					/>
+				<field
+					name="publicSocialCalendarUrl"
+					type="text"
+					label="Public Social Calendar URL"
+					default="index.php/trips-socials/social-calendar-2"
+					/>
+				<field
+					name="tripSignupUrl"
+					type="text"
+					label="Trip Signup URL"
+					default="https://ctc.org.nz/index.php/trip-signup/"
+					/>
+				<field
+					name="tripSignupTripPath"
+					type="text"
+					label="Trip Signup Trip URL (relatiuve to Trip Signup URL)"
+					default="#/trips/"
+					/>
+			</fieldset>
+			<fieldset name="basic" addfieldprefix="Joomla\Component\Content\Administrator\Field">
+				<field
+					name="overdueArticle"
+					type="modal_article"
+					label="Overdue Trips Article"
+					/>
+			</fieldset>
+
+		</fields>
+	</config>
+</extension>
