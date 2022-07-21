@@ -58,7 +58,7 @@ if ($longAxisIsX) {
 }
 
 // We are going to resize and crop in one operation
-// Need to calculate the offesets for the new image in the coordinates of the old image
+// Need to calculate the offsets for the new image in the coordinates of the old image
 $shortAxisOvershoot = $shortAxisLength - ($longAxisLength * $targetRatioShort / $targetRatioLong);
 if ($shortAxisOvershoot > 0) {
     // Short axis is too long
