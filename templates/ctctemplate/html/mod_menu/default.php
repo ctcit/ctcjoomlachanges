@@ -36,7 +36,7 @@ foreach ($list as $i => &$item)
 		$class .= ' default';
 	}
 
-	if ($item->id == $active_id || ($item->type === 'alias' && $item->params->get('aliasoptions') == $active_id))
+	if ($item->id == $active_id || ($item->type === 'alias' && $item->getParams()->get('aliasoptions') == $active_id))
 	{
 		$class .= ' current';
 	}
