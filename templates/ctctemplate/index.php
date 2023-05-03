@@ -79,7 +79,8 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
         <div class="container ctc-home-container" id="homepage-container">
             <div class="row">
                 <div class="d-lg-none col ctc-main pb-0 mb-0">
-                    <div class="jumbotron">
+                    <jdoc:include type="message" />
+                    <div class="home-welcome">
                         <jdoc:include type="modules" name="home-welcome" style="none" />
                     </div>
                     <div class="d-lg-none">
@@ -92,9 +93,11 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
                     <jdoc:include type="modules" name="upcoming-trips" style="none" />
                 </div>
                 <div id="homepage-main" class="col-lg order-lg-1 ctc-main">
-                    <jdoc:include type="message" />
-                    <div class="jumbotron d-none d-lg-block">
-                        <jdoc:include type="modules" name="home-welcome" style="none" />
+                    <div class="d-none d-lg-block">
+                        <jdoc:include type="message" />
+                        <div class="home-welcome">
+                            <jdoc:include type="modules" name="home-welcome" style="none" />
+                        </div>
                     </div>
                     <div id="trip-reports">
                         <jdoc:include type="modules" name="trip-reports" style="none" />

@@ -12,6 +12,10 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\Helper\ModuleHelper;
 
+
+$app    = JFactory::getApplication();
+$path   = JURI::base(true).'/templates/'.$app->getTemplate().'/';
+
 if ($isMember) {
   ?>
 <h1 class="home-h1">Welcome <?=$user->name;?></h1>
@@ -33,7 +37,10 @@ if ($isMember) {
 
 } else {
   ?>
-<h1 class="home-h1">Welcome to the CTC</h1>
+<h1 class="home-h1">
+The Christchurch Tramping Club
+  <!--<img src="<?php echo $path; ?>/images/logo_darkgreen.png" class="d-none d-md-inline"/>-->
+</h1>
 <p>The Christchurch Tramping Club (CTC) is one of Christchurch's largest
 tramping clubs. We run a range of day and overnight trips most weekends as well
 as regular socials. Our trips range from easy (minimal experience
@@ -44,7 +51,7 @@ club and always welcome new members, whatever your age, ability or background!</
 <div class="clearfix">
     <div class="float-right">
       <a href="index.php/about/about-ctc" class="ctc-button-outline btn btn-primary px-5 m-2" role="button">Learn More</a>
-      <a href="index.php/join-us" class="ctc-button btn btn-primary px-5 m-2" role="button">Join Us</a>
+      <a href="index.php/join-us" class="ctc-button btn btn-primary px-5 m-2" role="button">Join the Club</a>
     </div>
 </div>
 

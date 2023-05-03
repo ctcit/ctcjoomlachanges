@@ -32,7 +32,7 @@ h1, h2, h3, h4 {
 
 h1 {
   color: var(--dark-green) ;
-  border-bottom: 3px solid #E0A800;
+  border-bottom: 4px solid #E0A800;
   margin-bottom: 2rem;
   padding-bottom: 0.7rem;
 }
@@ -202,11 +202,17 @@ h1 {
 
 /* Home Welcome */
 .home-h1 {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
+  text-align: left;
+}
+
+.home-h1 img {
+  height: 7rem;
+  margin-right: 2rem;
 }
 
 .home-welcome {
-  padding: 1rem 2rem;
+  padding: 1rem 1rem;
   border-radius: 0.5rem;
   /*background: #e8e9e880;*/
   margin-bottom: 1rem;
