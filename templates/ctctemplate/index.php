@@ -1,8 +1,10 @@
 <?php
+use Joomla\CMS\Factory;
 
 defined('_JEXEC') or die('Restricted access');
 $doc = JFactory::getDocument();
 $isHome = JFactory::getApplication()->getMenu()->getActive()->home;
+$pageType = Factory::getApplication()->getInput()->get('view');
 
 // Defer fontawesome for increased performance. Once the page is loaded javascript changes it to a stylesheet.
 $wa  = $this->getWebAssetManager();
@@ -106,9 +108,21 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
             </div>
         </div>
     <?php
-    } else {
+    } else if ($pageType == 'wrapper') {
     ?>
-        <!-- Page content -->
+        <!-- Page content for iframe wrapper pages
+             PENDING - Eventually let them go fill-width -->
+        <div class="container-fluid" id="page-container">
+            <div class="row justify-content-md-center">
+                <div class="ctc-main col-8">
+                    <jdoc:include type="component" />
+                    <jdoc:include type="message" />
+                </div>
+            </div>
+        </div>
+    <?php
+    } else { ?>
+        <!-- Page content for 'normal' pages -->
         <div class="container" id="page-container">
             <div class="row">
                 <div class="ctc-main col">
