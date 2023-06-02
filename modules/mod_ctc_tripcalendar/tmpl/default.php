@@ -21,7 +21,7 @@ use Joomla\CMS\Helper\ModuleHelper;
 </a>
 <?php if ($social != null) {
 ?>
-<a href="<?php echo ($isMember) ? $tripSignupUrl : $publicSocialCalendarUrl; ?>" class="calendar-header-link">
+<a href="<?php echo $publicSocialCalendarUrl; ?>" class="calendar-header-link">
   <div class="calendar-header">
     <div class="more-events">
       <i class="fa fa-plus" aria-hidden="true"></i> View All
@@ -29,13 +29,7 @@ use Joomla\CMS\Helper\ModuleHelper;
     <h2 class="pt-5 pb-1">Next Social</h2>
   </div>
 </a>
-<?php
-    if ($isMember) {
-      echo "<a href='$tripSignupUrl$tripSignupTripPath/$social->id' class='event row row-striped'>";
-    } else {
-      echo "<div class='event row row-striped'>";
-    }
-?>
+<div class="event row row-striped">
   <div class="col-3 text-right">
     <span class="event-date badge badge-secondary"><?php echo $social->tripDate->format('j'); ?></span>
     <h2 class="event-day text-uppercase"><?php echo $social->tripDate->format('M'); ?></h2>
@@ -47,7 +41,7 @@ use Joomla\CMS\Helper\ModuleHelper;
       <li class="list-inline-item"><i class="fa fa-home" aria-hidden="true"></i> <?php echo $social->departurePoint; ?></li>
     </ul>
   </div>
-  <?php echo $isMember ? "</a>" : "</div>"; ?>
+</div>
 <?php
 }?>
 
@@ -61,16 +55,24 @@ use Joomla\CMS\Helper\ModuleHelper;
 </a>
 
 <?php
-foreach($trips as $date => $month_trips) {
-  echo('<h3 class="calendar-month">'.$date.'</h3>');
-  foreach($month_trips as $trip) {
-?>
-<?php
-    if ($isMember) {
-      echo "<a href='$tripSignupUrl$tripSignupTripPath/$trip->id' class='event row row-striped'>";
-    } else {
-      echo "<div class='event row row-striped'>";
+if (count($trips)==0)
+{
+  echo('<p>No trips found :(</p>');
+}
+else
+{
+  foreach($trips as $date => $month_trips) {
+    if (count($month_trips)==0)
+    {
+      continue;
     }
+    echo('<h3 class="calendar-month">'.$date.'</h3>');
+    foreach($month_trips as $trip) {
+      if ($isMember) {
+        echo "<a href='$tripSignupUrl$tripSignupTripPath/$trip->id' class='event row row-striped'>";
+      } else {
+        echo "<div class='event row row-striped'>";
+      }
 ?>
     <div class="col-3 text-right">
       <span class="event-date badge badge-secondary"><?php echo $trip->tripDate->format('j') ?></span>
@@ -85,5 +87,6 @@ foreach($trips as $date => $month_trips) {
     </div>
     <?php echo $isMember ? "</a>" : "</div>"; ?>
 <?php
+    }
   }
 } ?>
