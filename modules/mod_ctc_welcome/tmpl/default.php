@@ -18,21 +18,14 @@ $path   = JURI::base(true).'/templates/'.$app->getTemplate().'/';
 
 if ($isMember) {
   ?>
-<h1 class="home-h1">Welcome <?=$user->name;?></h1>
-  <a href="" class="btn btn-outline-warning home-btn"><i class="fas fa-hiking home-btn-icon"></i><br>Trip Signup</a>
-  <a href="" class="btn btn-outline-warning home-btn"><i class="fas fa-edit home-btn-icon"></i><br>Create Trip Report</a>
-  <a href="" class="btn btn-outline-warning home-btn"><i class="fas fa-calendar home-btn-icon"></i><br>Hut Booking Calendar</a>
-  <a href="" class="btn btn-outline-warning home-btn"><i class="fas fa-user home-btn-icon"></i><br>Your CTC Account</a>
-  <a href="" class="btn btn-outline-warning home-btn"><i class="fas fa-key home-btn-icon"></i><br>Change Password</a>
-  <a href="" class="btn btn-outline-warning home-btn"><i class="fas fa-campground home-btn-icon"></i><br>Gear Hire</a>
-
-<ul>
-  <!--<li><a href="">Trip Signup <i class="fas fa-hiking"></i></a></li>
-  <li><a href="">Create Trip Report <i class="fas fa-edit"></i></a></li>
-  <li><a href="">Hut Booking Calendar <i class="fas fa-calendar"></i></a></li>
-  <li><a href="">Your CTC Account <i class="fas fa-user"></i></a></li>
-  <li><a href="">Change Password <i class="fas fa-key"></i></a></li>-->
-</ul>
+<h1 class="home-h1">Members Menu</h1>
+<!--<h1 class="home-h1">Welcome <?=$user->name;?></h1>-->
+  <a href="index.php/trip-signup" class="btn home-btn"><i class="fas fa-hiking home-btn-icon"></i><br>Trip Signup</a>
+  <a href="index.php/tramping-info/create-trip-report" class="btn home-btn"><i class="fas fa-edit home-btn-icon"></i><br>Create Trip Report</a>
+  <a href="https://docs.google.com/spreadsheets/d/1xzz5pRv9Oj0UXxwI0TAJyfBbfUqAyXWKHKj6HJp8crE/edit#gid=816103837" class="btn home-btn"><i class="fas fa-calendar home-btn-icon"></i><br>Hut Booking Calendar</a>
+  <a href="index.php/gear-hire" class="btn home-btn"><i class="fas fa-campground home-btn-icon"></i><br>Gear Hire</a>
+  <a href="index.php/user-details" class="btn home-btn"><i class="fas fa-user home-btn-icon"></i><br>Your CTC Account</a>
+  <a href="index.php/officialdom" class="btn home-btn"><i class="fas fa-file-alt home-btn-icon"></i><br>Officialdom</a>
 <?php
 
 } else {
