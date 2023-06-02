@@ -35,13 +35,16 @@ class CtcTripCalendarHelper
 		$request_url = $params->get('apiUrl') . '/' . $collection_name;
 		$curl = curl_init($request_url);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		// Timeouts in seconds
+		curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 1);
+		curl_setopt($curl, CURLOPT_TIMEOUT, 1);
 		curl_setopt($curl, CURLOPT_HTTPHEADER, [
 		#'API-Key: 7G0I3BSHPDXV69QWX1IWK4PR3WRJ6KAC',
 		'Content-Type: application/json'
 		]);
 		$response = curl_exec($curl);
 		curl_close($curl);
-		$trips = json_decode($response);
+		$trips = $reponse != '' ? json_decode($response) : [];
 
 		// Now we want to group by month
 		$now = new DateTimeImmutable();
@@ -77,7 +80,10 @@ class CtcTripCalendarHelper
 				$tripCount++;
 			}
 		}
-		$sortedTrips[$currentMonth->format(CtcTripCalendarHelper::MonthFormat)] = $currentMonthsTrips;
+		if (count($currentMonthsTrips)!=0)
+		{
+			$sortedTrips[$currentMonth->format(CtcTripCalendarHelper::MonthFormat)] = $currentMonthsTrips;
+		}
 		CtcTripCalendarHelper::$Trips = $sortedTrips;
 	}
 
