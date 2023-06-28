@@ -80,7 +80,12 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
         <!-- Homepage content -->
         <div class="container ctc-home-container" id="homepage-container">
             <div class="row">
+                <!-- Mobile only - home welcome first, then calendar, then trip report -->
                 <div class="d-lg-none col ctc-main pb-0 mb-0">
+                    <div id="socials" class="px-2">
+                        <p><i class="fab fa-facebook px-2" style="color: #4267B2; font-size:2rem"></i> <a href="https://facebook.com/ctcnz">facebook.com/ctcnz</a></p>
+                        <p><i class="fab fa-instagram px-2" style="font-size:2rem"></i> <a href="https://instagram.com/christchurchtrampingclub">@christchurchtrampingclub</a></p>
+                    </div>
                     <jdoc:include type="message" />
                     <div class="home-welcome">
                         <jdoc:include type="modules" name="home-welcome" style="none" />
@@ -92,9 +97,14 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
                     </div>
                 </div>
                 <div class="calendar col-lg-4 col-xl-3 order-lg-12 ctc-main">
+                    <div id="socials" class="d-none d-lg-block pb-1">
+                        <p><i class="fab fa-facebook px-2" style="color: #4267B2; font-size:2rem"></i> <a href="https://facebook.com/ctcnz">facebook.com/ctcnz</a></p>
+                        <p><i class="fab fa-instagram px-2" style="font-size:2rem"></i> <a href="https://instagram.com/christchurchtrampingclub">@christchurchtrampingclub</a></p>
+                    </div>
                     <jdoc:include type="modules" name="upcoming-trips" style="none" />
                 </div>
                 <div id="homepage-main" class="col-lg order-lg-1 ctc-main">
+                    <!-- Non-Mobile only - home welcome comes in here -->
                     <div class="d-none d-lg-block">
                         <jdoc:include type="message" />
                         <div class="home-welcome">

@@ -9,6 +9,7 @@
   --masthead: #272d27;
   --orange: #E05A00;
   --yellowy: #E0A800;
+  --black: #212529;
 }
 
 /* Global */
@@ -431,7 +432,7 @@ a.trip-report:hover .trip-report-title
 }
 
 
-/* i-Frame wrappe */
+/* i-Frame wrapper */
 .iframewrapper {
     border-style: none;
 }
@@ -441,6 +442,23 @@ svg {
 	max-width: 100%;
 }
 
+/* Social media links on home page*/
+#socials p {
+  display: flex;
+  align-items: center;
+}
+
+#socials a
+{
+  color: var(--black);
+  text-decoration: none;
+  border: none;
+}
+
+#socials a:hover
+{
+  text-decoration: underline;
+}
 
 /* Joomla Components */
 .com-users-login {
