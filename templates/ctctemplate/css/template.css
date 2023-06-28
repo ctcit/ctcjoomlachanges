@@ -22,6 +22,12 @@ a, a:hover, a:visited, a:active {
   color: inherit;
 }
 
+p a, p a:hover, p a:visited, p a:active {
+  text-decoration: none;
+  border-bottom: 1px solid #7fbdff;
+  color: #007bff;
+}
+
 body {
     font-family: 'Lato', sans-serif;
     margin-bottom: 100px;
