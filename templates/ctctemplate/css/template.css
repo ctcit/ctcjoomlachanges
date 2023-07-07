@@ -31,7 +31,7 @@ p a, p a:hover, p a:visited, p a:active {
 
 body {
     font-family: 'Lato', sans-serif;
-    margin-bottom: 100px;
+    margin-bottom: 300px;
 }
 
 h1, h2, h3, h4 {
@@ -365,6 +365,7 @@ a.trip-report:hover .trip-report-title
   width: 100%;
   background-color: #272d27;
   color: #f7f7f7f7;
+  font-size: 0.9rem;
 }
 
 .legal

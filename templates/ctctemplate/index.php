@@ -78,7 +78,7 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
     <?php if ($isHome) {
     ?>
         <!-- Homepage content -->
-        <div class="container ctc-home-container" id="homepage-container">
+        <main class="container ctc-home-container" id="homepage-container">
             <div class="row">
                 <!-- Mobile only - home welcome first, then calendar, then trip report -->
                 <div class="d-lg-none col ctc-main pb-0 mb-0">
@@ -116,39 +116,49 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
     <?php
     } else if ($pageType == 'wrapper') {
     ?>
         <!-- Page content for iframe wrapper pages
              PENDING - Eventually let them go fill-width -->
-        <div class="container-fluid" id="page-container">
+        <main class="container-fluid" id="page-container">
             <div class="row justify-content-md-center">
                 <div class="ctc-main col-8">
                     <jdoc:include type="component" />
                     <jdoc:include type="message" />
                 </div>
             </div>
-        </div>
+        </main>
     <?php
     } else { ?>
         <!-- Page content for 'normal' pages -->
-        <div class="container" id="page-container">
+        <main class="container" id="page-container">
             <div class="row">
                 <div class="ctc-main col">
                     <jdoc:include type="message" />
                     <jdoc:include type="component" />
                 </div>
             </div>
-        </div>
+        </main>
     <?php
     }
     ?>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container py-4">
-            <span class="legal">© 2022 Christchurch Tramping Club
+        <div class="container px-4 pb-4 pt-5">
+            <div class="row">
+                <div class="col-auto d-none d-md-block">
+                    <img src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/images/logo.png" style="width: 140px">
+                </div>
+                <div class="col">
+                    <p>The Christchurch Tramping Club<br>PO Box 527<br>Christchurch<br>New Zealand</p>
+                    <p><?php echo JHtml::_('email.cloak', 'secretaryatctc@gmail.com'); ?></p>
+                    <p>Affiliated to <a href="fmc.org.nz">Federated Mountain Clubs</a></p>
+                    <p>© 2023 Christchurch Tramping Club</p>
+                </div>
+            </div>
         </div>
         <jdoc:include type="modules" name="footer" />
         </span>
