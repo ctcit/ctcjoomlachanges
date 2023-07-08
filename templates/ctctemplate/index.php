@@ -135,7 +135,7 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
         <!-- Page content for 'normal' pages -->
         <main class="container" id="page-container">
             <div class="row">
-                <div class="ctc-left-menu col-auto"><jdoc:include type="modules" name="left-menu" style="none" /></div>
+                <div class="ctc-left-menu col col-auto"><jdoc:include type="modules" name="left-menu" style="none" /></div>
                 <div class="ctc-main col">
                     <jdoc:include type="message" />
                     <jdoc:include type="component" />
