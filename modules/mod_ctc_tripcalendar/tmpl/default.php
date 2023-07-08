@@ -24,7 +24,7 @@ use Joomla\CMS\Helper\ModuleHelper;
 <a href="<?php echo $publicSocialCalendarUrl; ?>" class="calendar-header-link">
   <div class="calendar-header">
     <div class="more-events">
-      <i class="fa fa-plus" aria-hidden="true"></i> View All
+      <i class="fa fa-plus" aria-hidden="true" ></i> View All
     </div>
     <h2 class="pt-5 pb-1">Next Social</h2>
   </div>
@@ -37,7 +37,7 @@ use Joomla\CMS\Helper\ModuleHelper;
   <div class="col-9">
     <h3 class="event-title"><?php echo $social->title; ?></h3>
     <ul class="list-inline">
-      <li class="list-inline-item"><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo $social->departureDetails; ?></li>
+      <li class="list-inline-item"><i class="fas fa-clock" aria-hidden="true"></i> <?php echo $social->departureDetails; ?></li>
       <li class="list-inline-item"><i class="fa fa-home" aria-hidden="true"></i> <?php echo $social->departurePoint; ?></li>
     </ul>
   </div>
@@ -45,7 +45,7 @@ use Joomla\CMS\Helper\ModuleHelper;
 <?php
 }?>
 
-<a href="<?php echo ($isMember) ? $tripSignupUrl : $publicTripCalendarUrl; ?>" class="calendar-header-link">
+<a href="<?php echo ($isMember) ? $tripSignupUrl : $publicSocialCalendarUrl; ?>" class="calendar-header-link">
   <div class="calendar-header">
     <div class="more-events">
       <i class="fa fa-plus" aria-hidden="true"></i> View All
@@ -81,8 +81,8 @@ else
     <div class="col-9">
       <h3 class="event-title"><?php echo $trip->title ?></h3>
       <ul class="list-inline">
-        <li class="list-inline-item"><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo $trip->type ?></li>
-        <li class="list-inline-item"><i class="fa fa-arrows-v" aria-hidden="true"></i> <?php echo $trip->grade ?></li>
+        <li class="list-inline-item"><i class="fas fa-clock" aria-hidden="true"></i> <?php echo $trip->type ?></li>
+        <li class="list-inline-item"><i class="fas fa-arrows-alt-v" aria-hidden="true"></i> <?php echo $trip->grade ?></li>
       </ul>
     </div>
     <?php echo $isMember ? "</a>" : "</div>"; ?>
