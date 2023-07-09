@@ -581,3 +581,33 @@ svg {
   display: block;
   margin-bottom: 1rem;
 }
+
+/* Document management */
+.ctcdocs-button {
+  border: 0;
+  color: var(--dark-green);
+}
+
+.ctcdocs-button:hover {
+  border-radius: 2px;
+  color: #f7f7f7;
+  background: var(--dark-green-hover);
+}
+
+.ctcdocs-button-file {
+  font-size: 0.9rem;
+  margin: 2px;
+  background: inherit;
+}
+
+.ctcdocs-button-folder {
+  font-size: 1.5rem;
+  background: inherit;
+}
+
+.ctcdocs-button-new {
+  margin: 2px;
+  padding: 4px 8px;
+  background: #f7f7f7;
+  border: 1px solid var(--dark-green-hover);
+}
