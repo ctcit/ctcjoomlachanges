@@ -5,8 +5,8 @@ function RemoveFile(p_root, p_subdir, p_filename) {
         formdata.append('root', p_root);
         formdata.append('subdir', p_subdir);
         formdata.append('filename', p_filename);
-        jQuery(function ($) {
-            $.ajax({
+        $jq(function ($jq) {
+            $jq.ajax({
                 url: 'index.php?option=com_ajax&plugin=managectcdocuments&group=content&format=raw',
                 type: 'POST',
                 data: formdata,
@@ -45,8 +45,8 @@ function DoRenameDocumentFolder(p_root, p_subdir) {
         formdata.append('root', p_root);
         formdata.append('subdir', p_subdir);
         formdata.append('newname', newname);
-        jQuery(function ($) {
-            $.ajax({
+        $jq(function ($jq) {
+            $jq.ajax({
                 url: 'index.php?option=com_ajax&plugin=managectcdocuments&group=content&format=raw',
                 type: 'POST',
                 data: formdata,
@@ -102,7 +102,7 @@ function ShowInputDialog(p_defaulttext, p_okEvent){
     try{
         dialog.showModal();
     }catch(err){
-        // Ignore for browsers with no dialog implementation        
+        // Ignore for browsers with no dialog implementation
     }
 }
 
@@ -116,9 +116,9 @@ function DoRenameFile(p_root, p_subdir, p_filename) {
     try{
         dialog.close();
     }catch(err){
-        // Ignore for browsers with no dialog implementation        
+        // Ignore for browsers with no dialog implementation
     }
-    
+
     if (p_filename !== newname) {
         var formdata = new FormData();
         formdata.append('action', 'RenameFile');
@@ -126,8 +126,8 @@ function DoRenameFile(p_root, p_subdir, p_filename) {
         formdata.append('subdir', p_subdir);
         formdata.append('filename', p_filename);
         formdata.append('newname', newname);
-        jQuery(function ($) {
-            $.ajax({
+        $jq(function ($jq) {
+            $jq.ajax({
                 url: 'index.php?option=com_ajax&plugin=managectcdocuments&group=content&format=raw',
                 type: 'POST',
                 data: formdata,
@@ -179,8 +179,8 @@ function DoUpload(p_root, p_subdir) {
     formdata.append('root', p_root);
     formdata.append('subdir', p_subdir);
     var progress = document.getElementsByClassName('progress' + p_subdir)[0];
-    jQuery(function ($) {
-        $.ajax({
+    $jq(function ($jq) {
+        $jq.ajax({
             // Process upload via Joomla ajax component
             // Note that there doesn't need to actually be a plugin with that name
             // Just any plugin with onAjax... method in the specified group
@@ -196,7 +196,7 @@ function DoUpload(p_root, p_subdir) {
             processData: false,
             // Custom XMLHttpRequest
             xhr: function () {
-                var xhrCustom = $.ajaxSettings.xhr();
+                var xhrCustom = $jq.ajaxSettings.xhr();
                 if (xhrCustom.upload) {
                     // For handling the progress of the upload
                     xhrCustom.upload.addEventListener('progress',
@@ -235,14 +235,14 @@ function DoNewDocumentFolder(p_root) {
     try{
         dialog.close();
     }catch(err){
-        // Ignore for browsers with no dialog implementation        
+        // Ignore for browsers with no dialog implementation
     }
     var formdata = new FormData();
     formdata.append('action', 'NewFolder');
     formdata.append('root', p_root);
     formdata.append('newname', newname);
-    jQuery(function ($) {
-        $.ajax({
+    $jq(function ($jq) {
+        $jq.ajax({
             url: 'index.php?option=com_ajax&plugin=managectcdocuments&group=content&format=raw',
             type: 'POST',
             data: formdata,

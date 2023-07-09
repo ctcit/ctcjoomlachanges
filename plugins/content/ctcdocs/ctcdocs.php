@@ -21,11 +21,11 @@ class plgContentCTCDocs extends JPlugin {
     static $basePath;
     static $liveSite;
     static $editallowed = false;
-    
+
     static public function escapeApostrophe($value){
         return  str_replace("'", "\\'", $value);
     }
-    
+
     static public function makeDocumentIndex($root, $subdir, $sort = ALPHA_SORT) {
         // Makes a list of links to all documents in the given subdirectory
         // of the given root directory. The subdirectory name is used as a level
@@ -43,18 +43,16 @@ class plgContentCTCDocs extends JPlugin {
         $dir = opendir($dirname);
         $result = '<h2>';
 
-        if (plgContentCTCDocs::$editallowed) {
-            $result .= '<button title = "Upload document" onclick="UploadCTCDocuments(\'' 
-                       . plgContentCTCDocs::escapeApostrophe($root) . '\',\'' 
-                       . plgContentCTCDocs::escapeApostrophe($subdir) . '\')">+</button>'
-                       .' <progress class="progress' . $subdir 
-                       . '" style="display:none"></progress> ';
-        }
         $result .= $subdir;
         if (plgContentCTCDocs::$editallowed) {
             $subdirescaped = plgContentCTCDocs::escapeApostrophe($subdir);
-            $result .= '  <button class="'.$subdirescaped.'" title = "Rename folder" onclick="RenameDocumentFolder(\'' 
-                       . addslashes($root) . '\',\'' . $subdirescaped . '\')">...</button>';
+            $result .= '<button class="ctcdocs-button ctcdocs-button-folder" style="margin-left: 15px;" title="Upload document" onclick="UploadCTCDocuments(\''
+                       . plgContentCTCDocs::escapeApostrophe($root) . '\',\''
+                       . plgContentCTCDocs::escapeApostrophe($subdir) . '\')"><i class="far fa-plus-square"></i></button>'
+                       .'  <button class="ctcdocs-button ctcdocs-button-folder" title="Rename folder" onclick="RenameDocumentFolder(\''
+                       . addslashes($root) . '\',\'' . $subdirescaped . '\')"><i class="far fa-edit"></i></button>'
+                       .' <progress class="progress' . $subdir
+                       . '" style="display:none"></progress> ';
         }
         $result .= '</h2><ul>';
         $lines = array();
@@ -91,10 +89,10 @@ class plgContentCTCDocs extends JPlugin {
             }
             $line = "<li><a href=\"" . plgContentCTCDocs::$liveSite . "/$root/$subdir/$file\" target=\"_blank\">$descr</a>$extra";
             if (plgContentCTCDocs::$editallowed) {
-                $line .= '<button style="width:20px;height:20px;margin:1px 0px 1px 5px; padding: 0px 2px 7px 2px;" title = "Remove file"  onclick="RemoveFile(\'' 
-                         .plgContentCTCDocs::escapeApostrophe($root) . '\',\'' . plgContentCTCDocs::escapeApostrophe($subdir) . '\',\'' . plgContentCTCDocs::escapeApostrophe($file) . '\')">-</button>';
-                $line .= '<button style="width:20px;height:20px;margin:1px 0px 1px 5px; padding: 0px 2px 7px 2px;" title = "Rename file" " onclick="RenameFile(\'' 
-                         . plgContentCTCDocs::escapeApostrophe($root) . '\',\'' . plgContentCTCDocs::escapeApostrophe($subdir) . '\',\'' . plgContentCTCDocs::escapeApostrophe($file) . '\')">...</button>';
+                $line .= '<button style="margin-left: 4px;" class="ctcdocs-button ctcdocs-button-file" title="Remove file"  onclick="RemoveFile(\''
+                         .plgContentCTCDocs::escapeApostrophe($root) . '\',\'' . plgContentCTCDocs::escapeApostrophe($subdir) . '\',\'' . plgContentCTCDocs::escapeApostrophe($file) . '\')"><i class="far fa-trash-alt"></i></button>';
+                $line .= '<button class="ctcdocs-button ctcdocs-button-file" title="Rename file" " onclick="RenameFile(\''
+                         . plgContentCTCDocs::escapeApostrophe($root) . '\',\'' . plgContentCTCDocs::escapeApostrophe($subdir) . '\',\'' . plgContentCTCDocs::escapeApostrophe($file) . '\')"><i class="far fa-edit"></i></button>';
             }
             $line .= "</li>";
             $lines[$key] = $line;
@@ -114,10 +112,13 @@ class plgContentCTCDocs extends JPlugin {
             return "";
         } else {
             $param = $match[1];
-            $output = '<script src="media/jui/js/jquery.min.js" type="text/javascript"></script>' .
-                    '<script src="plugins/content/CTCDocs/ManageDocuments.js"></script>';// .
+            // Joomla loads jQuery slim, which doesn't have ajax anymore
+            // Rather than burdening the rest of the site with full jQuery, we load it here
+            $output = '<script src="https://code.jquery.com/jquery-3.7.0.min.js" type="text/javascript"></script>' .
+                      '<script>var $jq = jQuery.noConflict(true);</script>'.
+                      '<script src="plugins/content/ctcdocs/ManageDocuments.js"></script>';
             if (plgContentCTCDocs::$editallowed)
-                $output .= '<button title = "New folder" onclick="NewDocumentFolder(\'' . plgContentCTCDocs::escapeApostrophe($param) . '\')">+ Folder</button>';
+                $output .= '<button class="ctcdocs-button ctcdocs-button-new" title="New folder" onclick="NewDocumentFolder(\'' . plgContentCTCDocs::escapeApostrophe($param) . '\')"><i class="fas fa-folder-plus px-1"></i> New Folder</button>';
 
             $dirname = plgContentCTCDocs::$basePath . DIRECTORY_SEPARATOR . $param;
             if (!file_exists($dirname) || !is_dir($dirname)) {
@@ -228,7 +229,7 @@ class plgContentCTCDocs extends JPlugin {
             ob_end_clean(); // Discard any potential output generated internally by php
             return json_encode($data);
         }
-        return "";       
+        return "";
     }
 
 }
