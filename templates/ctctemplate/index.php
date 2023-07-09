@@ -26,8 +26,7 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="icon" type="image/png" href="logo_round_small_green_border.png" />
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/images/favicon.png" />
     <link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/template.css" type="text/css" />
     <!-- <link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/template_prostar.css" type="text/css" /> -->
     <!-- PENDING - load this through the assets.json! -->
@@ -38,7 +37,7 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
     // Add JavaScript Frameworks
     //JHtml::_('bootstrap.framework');
     JHtml::_('jquery.framework');
-    $doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/template.js');
+    //$doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/template.js');
     ?>
 </head>
 
