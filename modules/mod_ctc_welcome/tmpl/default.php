@@ -20,12 +20,15 @@ if ($isMember) {
   ?>
 <h1 class="home-h1">Members Menu</h1>
 <!--<h1 class="home-h1">Welcome <?=$user->name;?></h1>-->
-  <a href="index.php/trip-signup" class="btn home-btn"><i class="fas fa-hiking home-btn-icon"></i><br>Trip Signup</a>
-  <a href="index.php/tramping-info/create-trip-report" class="btn home-btn"><i class="fas fa-edit home-btn-icon"></i><br>Create Trip Report</a>
+  <a href="index.php/members-menu/trip-signup" class="btn home-btn"><i class="fas fa-hiking home-btn-icon"></i><br>Trip Signup</a>
+  <a href="index.php/members-menu/create-trip-report" class="btn home-btn"><i class="fas fa-edit home-btn-icon"></i><br>Create Trip Report</a>
   <a href="https://docs.google.com/spreadsheets/d/1xzz5pRv9Oj0UXxwI0TAJyfBbfUqAyXWKHKj6HJp8crE/edit#gid=816103837" class="btn home-btn"><i class="fas fa-calendar home-btn-icon"></i><br>Hut Booking Calendar</a>
-  <a href="index.php/gear-hire" class="btn home-btn"><i class="fas fa-campground home-btn-icon"></i><br>Gear Hire</a>
+  <a href="index.php/members-menu/gear-hire" class="btn home-btn"><i class="fas fa-campground home-btn-icon"></i><br>Gear Hire</a>
   <a href="index.php/user-details" class="btn home-btn"><i class="fas fa-user home-btn-icon"></i><br>Your CTC Account</a>
-  <a href="index.php/officialdom" class="btn home-btn"><i class="fas fa-file-alt home-btn-icon"></i><br>Officialdom</a>
+  <a href="index.php/members-menu/officialdom" class="btn home-btn"><i class="fas fa-file-alt home-btn-icon"></i><br>Club Documents</a>
+  <a href="index.php/members-menu/tripleaders" class="btn home-btn"><i class="fas fa-hand-pointer home-btn-icon"></i><br>Trip Leader Info</a>
+  <a href="index.php/members-menu/newsletter-archive" class="btn home-btn"><i class="fas fa-newspaper home-btn-icon"></i><br>Newsletter Archive</a>
+  <a href="index.php/mailing-list" class="btn home-btn"><i class="fas fa-envelope home-btn-icon"></i><br>Email All Members</a>
 <?php
 
 } else {
