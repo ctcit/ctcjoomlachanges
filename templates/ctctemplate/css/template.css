@@ -19,7 +19,7 @@ html {
   min-height: 100%;
 }
 
-a, a:hover, a:visited, a:active {
+a, a:hover, a:visited, a:active, a:focus {
   color: inherit;
 }
 
@@ -60,7 +60,12 @@ h3 {
 }
 
 .ctc-main {
-  margin: 2rem 1rem;
+  margin: 2rem 0rem;
+  min-height: 60vh;
+}
+
+.ctc-wrapper-col {
+  max-width: 1200px;
 }
 
 .ctc-left-menu {

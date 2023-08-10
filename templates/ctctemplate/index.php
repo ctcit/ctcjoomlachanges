@@ -122,8 +122,8 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
         <!-- Page content for iframe wrapper pages
              PENDING - Eventually let them go fill-width -->
         <main class="container-fluid" id="page-container">
-            <div class="row justify-content-md-center">
-                <div class="ctc-main col-8">
+            <div class="row justify-content-center">
+                <div class="ctc-main col ctc-wrapper-col">
                     <jdoc:include type="message" />
                     <jdoc:include type="component" />
                 </div>
