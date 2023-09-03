@@ -3,7 +3,10 @@ use Joomla\CMS\Factory;
 
 defined('_JEXEC') or die('Restricted access');
 $doc = JFactory::getDocument();
-$isHome = JFactory::getApplication()->getMenu()->getActive()->home;
+$activePage = JFactory::getApplication()->getMenu()->getActive();
+$isHome = $activePage->home;
+$title = $activePage->title;
+$heading = $activePage->getParams()->get('page_heading');
 $pageType = Factory::getApplication()->getInput()->get('view');
 
 // Defer fontawesome for increased performance. Once the page is loaded javascript changes it to a stylesheet.
@@ -125,6 +128,7 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
             <div class="row justify-content-center">
                 <div class="ctc-main col ctc-wrapper-col">
                     <jdoc:include type="message" />
+                    <h1><?php echo $heading != "" ? $heading : $title; ?></h2>
                     <jdoc:include type="component" />
                 </div>
             </div>
