@@ -34,10 +34,10 @@ if ($isMember) {
 } else {
   ?>
 <h1 class="home-h1">
-The Christchurch Tramping Club
+Christchurch Tramping Club
   <!--<img src="<?php echo $path; ?>/images/logo_darkgreen.png" class="d-none d-md-inline"/>-->
 </h1>
-<p>The Christchurch Tramping Club (CTC) is one of Christchurch's largest
+<p>Welcome! The Christchurch Tramping Club (CTC) is one of Christchurch's largest
 tramping clubs. We run a range of day and overnight trips most weekends as well
 as regular socials. Our trips range from easy (minimal experience
 required) to hard (high level of fitness and experience required).
