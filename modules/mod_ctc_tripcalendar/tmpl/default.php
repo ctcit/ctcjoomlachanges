@@ -15,8 +15,8 @@ use Joomla\CMS\Helper\ModuleHelper;
 ?>
 
 <a href="<?php echo $overdueTripsUrl; ?>">
-  <button class="ctc-important">
-    <i class="fa fa-exclamation-circle" aria-hidden="true"></i> Overdue Trip Procedure
+  <button class="btn ctc-button-outline w-100 py-2">
+    Overdue Trip?
   </button>
 </a>
 <?php if ($social != null) {
@@ -24,9 +24,9 @@ use Joomla\CMS\Helper\ModuleHelper;
 <a href="<?php echo ($isMember) ? $tripSignupUrl : $publicSocialCalendarUrl; ?>" class="calendar-header-link">
   <div class="calendar-header">
     <div class="more-events">
-      <i class="fa fa-plus" aria-hidden="true" ></i> View All
+    All Socials<i class="fas fa-long-arrow-alt-right pl-2"></i>
     </div>
-    <h2 class="pt-5 pb-1">Next Social</h2>
+    <h2 class="pb-1">Next Social</h2>
   </div>
 </a>
 <?php
@@ -53,9 +53,9 @@ use Joomla\CMS\Helper\ModuleHelper;
 <a href="<?php echo ($isMember) ? $tripSignupUrl : $publicTripCalendarUrl; ?>" class="calendar-header-link">
   <div class="calendar-header">
     <div class="more-events">
-      <i class="fa fa-plus" aria-hidden="true"></i> View All
+    All Trips<i class="fas fa-long-arrow-alt-right pl-2"></i>
     </div>
-    <h2 class="pt-5 text-decoration-none">Trip List</h2>
+    <h2 class="text-decoration-none">Trip List</h2>
   </div>
 </a>
 

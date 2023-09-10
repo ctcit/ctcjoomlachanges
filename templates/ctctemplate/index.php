@@ -84,9 +84,9 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
             <div class="row">
                 <!-- Mobile only - home welcome first, then calendar, then trip report -->
                 <div class="d-lg-none col ctc-main pb-0 mb-0">
-                    <div id="socials" class="px-2">
-                        <p><i class="fab fa-facebook px-2" style="color: #4267B2; font-size:2rem"></i> <a href="https://facebook.com/ctcnz">facebook.com/ctcnz</a></p>
-                        <p><i class="fab fa-instagram px-2" style="font-size:2rem"></i> <a href="https://instagram.com/christchurchtrampingclub">@christchurchtrampingclub</a></p>
+                    <div id="socials" class="px-2 display-flex">
+                        <a href="https://facebook.com/ctcnz"><i class="fab fa-facebook px-2" style="color: #4267B2; font-size:2rem"></i></a>
+                        <a href="https://instagram.com/christchurchtrampingclub"><i class="fab fa-instagram px-2" style="font-size:2rem"></i></a>
                     </div>
                     <jdoc:include type="message" />
                     <div class="home-welcome">
@@ -99,9 +99,9 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
                     </div>
                 </div>
                 <div class="calendar col-lg-4 col-xl-3 order-lg-12 ctc-main">
-                    <div id="socials" class="d-none d-lg-block pb-1">
-                        <p><i class="fab fa-facebook px-2" style="color: #4267B2; font-size:2rem"></i> <a href="https://facebook.com/ctcnz">facebook.com/ctcnz</a></p>
-                        <p><i class="fab fa-instagram px-2" style="font-size:2rem"></i> <a href="https://instagram.com/christchurchtrampingclub">@christchurchtrampingclub</a></p>
+                    <div id="socials" class="d-none d-lg-flex pb-3">
+                        <a href="https://facebook.com/ctcnz"><i class="fab fa-facebook px-2" style="color: #4267B2; font-size:2rem"></i></a>
+                        <a href="https://instagram.com/christchurchtrampingclub"><i class="fab fa-instagram px-2" style="font-size:2rem"></i></a>
                     </div>
                     <jdoc:include type="modules" name="upcoming-trips" style="none" />
                 </div>
@@ -150,17 +150,23 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
     ?>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container px-4 pb-4 pt-5">
-            <div class="row">
-                <div class="col-auto d-none d-md-block">
-                    <img src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/images/logo.png" style="width: 140px">
+    <footer class="footer-container">
+        <div class="footer px-5">
+            <div class="row justify-content-between">
+                <div class="col-auto d-flex">
+                    <div class="d-none d-md-block pr-4">
+                        <img src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/images/logo.png" style="width: 140px">
+                    </div>
+                    <div class="pt-1 pr-4">
+                        <p><a href="index.php/join-us">Join Us</a><br>
+                        <a href="index.php/about/contact-us">Contact Us</a></p>
+                        <p>Affiliated to <a href="fmc.org.nz">Federated Mountain Clubs</a></p>
+                        <p>© 2023 Christchurch Tramping Club</p>
+                    </div>
                 </div>
-                <div class="col">
-                    <p>The Christchurch Tramping Club<br>PO Box 527<br>Christchurch<br>New Zealand</p>
-                    <p><?php echo JHtml::_('email.cloak', 'secretaryatctc@gmail.com'); ?></p>
-                    <p>Affiliated to <a href="fmc.org.nz">Federated Mountain Clubs</a></p>
-                    <p>© 2023 Christchurch Tramping Club</p>
+                <div class="col-auto pt-3">
+                    <p><a href="https://facebook.com/ctcnz"><i class="fab fa-facebook pr-2" style="color: #4267B2; font-size:2rem"></i> facebook.com/ctcnz</a></p>
+                    <p><a href="https://instagram.com/christchurchtrampingclub"><i class="fab fa-instagram pr-2" style="font-size:2rem"></i> @christchurchtrampingclub</a></p>
                 </div>
             </div>
         </div>

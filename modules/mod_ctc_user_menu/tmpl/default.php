@@ -23,8 +23,8 @@ use Joomla\CMS\Helper\ModuleHelper;
 ?>
 	<div class="dropdown show">
 		<a href="#" class="dropdown-toggle login-button" data-toggle="dropdown" >
-		<i class="fa fa-user pr-2 login-user" aria-hidden="true"></i>
-		<?php echo $user->name; ?>
+			<i class="fa fa-user pr-2 login-user" aria-hidden="true"></i>
+			<?php echo $user->name; ?>
 		</a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
 <?php

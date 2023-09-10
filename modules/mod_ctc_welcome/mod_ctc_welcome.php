@@ -10,17 +10,7 @@
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Helper\ModuleHelper;
-use Joomla\Module\TripCalendar\Site\Helper\TripCalendarHelper;
 use Joomla\CMS\Factory;
-
-TripCalendarHelper::loadTrips($params);
-$social = TripCalendarHelper::$Social;
-$trips = TripCalendarHelper::$Trips;
-$publicTripCalendarUrl = $params->get('publicTripCalendarUrl');
-$publicSocialCalendarUrl = $params->get('publicSocialCalendarUrl');
-$tripSignupUrl = $params->get('tripSignupUrl');
-$tripSignupTripPath = $params->get('tripSignupTripPath');
-$overdueTripsUrl = TripCalendarHelper::overdueTripsUrl($params);
 
 $user = Factory::getUser();
 $isMember = $user->guest == 0;

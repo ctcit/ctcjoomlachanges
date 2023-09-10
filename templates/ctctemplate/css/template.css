@@ -8,8 +8,11 @@
   /* --pale: #E7EFEA; */
   --masthead: #272d27;
   --orange: #E05A00;
-  --yellowy: #E0A800;
+  --yellowy: #F5AF00;
+  /*--yellowy: #E0A800;*/
   --black: #212529;
+  --bluey: #778DA9;
+  --blue-grey: #8296B0;
 }
 
 /* Global */
@@ -34,7 +37,6 @@ a, a:hover, a:visited, a:active, a:focus {
 
 body {
     font-family: 'Lato', sans-serif;
-    margin-bottom: 300px;
 }
 
 h1, h2, h3, h4 {
@@ -43,8 +45,8 @@ h1, h2, h3, h4 {
 
 h1 {
   color: var(--dark-green) ;
-  /*#border-bottom: 4px solid var(--yellowy);*/
-  margin-bottom: 1rem;
+  /*border-bottom: 4px solid var(--yellowy);*/
+  margin-bottom: 1.0rem;
   /*padding-bottom: 0.7rem;*/
 }
 
@@ -95,7 +97,7 @@ h3 {
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-position: center top;
-  mask-position: center;
+  mask-position: center top;
   position: absolute;
   top: 0;
   left: 0;
@@ -157,12 +159,12 @@ h3 {
   display: block;
   border: 1px #F1F2EB solid;
   border-radius: 5px;
-  padding: 5px;
+  padding: 6px 10px;
 }
 
 /* General */
 .ctc-important {
-  background-color: var(--orange);
+  background-color: var(--bluey);
   border-radius: 7px;
   color: #f7f7f7;
   padding: 10px;
@@ -174,7 +176,7 @@ h3 {
 }
 
 .ctc-important:hover {
-  background-color: #D76F47;
+  background-color: var(--blue-grey);
 }
 
 /* Navigation */
@@ -278,19 +280,36 @@ h3 {
 }
 
 /* Calendar */
+
+@media (min-width: 992px) {
+  .calendar {
+    -ms-flex: 0 0 30%;
+    flex: 0 0 30%;
+    max-width: 30%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .calendar {
+    -ms-flex: 0 0 30%;
+    flex: 0 0 30%;
+    max-width: 30%;
+  }
+}
+
 .row-striped:nth-of-type(odd){
+  background-color: #00591d10;
+  border-left: 4px #c4921cd0 solid;
   /* background-color: #ECEBEA; */
-  background-color: var(--pale);
-  border-left: 4px var(--dark-green) solid;
 }
 
 .row-striped:nth-of-type(even){
-  background-color: #FAFBF8;
-  border-left: 4px #d0d6b3 solid;
+  background-color: #d0d6b320;
+  border-left: 4px var(--dark-green) solid;
 }
 
 .row-striped {
-    padding: 10px 0;
+  padding: 15px 0 5px 0;
 }
 
 .calendar-month
@@ -301,14 +320,15 @@ h3 {
   border-bottom: 1px  solid;
   padding-left: 10px;
   padding-bottom: 4px;
-  margin-bottom: 8px;
-  margin-top: 8px;
+  margin-top: 15px;
+  margin-bottom: 10px;
 }
 
 .event
 {
   margin-left: 0px;
   font-size: 0.9rem;
+  min-height: 110px;
 }
 
 .event-title
@@ -324,14 +344,14 @@ h3 {
   text-align: center;
   margin-top: 7px;
   margin-bottom: 0px;
-  background-color: #919293;
 }
 
 .event-date
 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 500;
   width: 100%;
+  background-color: #919293;
 }
 
 .more-events
@@ -350,6 +370,7 @@ h3 {
 {
   position: relative;
   text-decoration: none!important;
+  padding-top: 25px;
 }
 
 .calendar-header:hover .more-events
@@ -377,14 +398,18 @@ a.trip-report:hover .trip-report-title
 }
 
 /* Footer */
-.footer
+.footer-container
 {
-  position: absolute;
-  bottom: 0;
   width: 100%;
   background-color: #272d27;
   color: #f7f7f7f7;
-  font-size: 0.9rem;
+  font-size: 1rem;
+}
+
+.footer
+{
+  padding-top: 4rem;
+  padding-bottom: 2rem;
 }
 
 .legal
