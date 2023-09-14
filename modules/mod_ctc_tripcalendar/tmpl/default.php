@@ -74,9 +74,9 @@ else
     echo('<h3 class="calendar-month">'.$date.'</h3>');
     foreach($month_trips as $trip) {
       if ($isMember) {
-        echo "<a href='$tripSignupUrl$tripSignupTripPath/$trip->id' class='event row row-striped'>";
+        echo "<a href='$tripSignupUrl$tripSignupTripPath/$trip->id' class='event row'>";
       } else {
-        echo "<div class='event row row-striped'>";
+        echo "<div class='event row'>";
       }
 ?>
     <div class="col-3 text-right">

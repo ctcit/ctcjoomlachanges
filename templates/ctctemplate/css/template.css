@@ -3,16 +3,13 @@
   --dark-green: #00591d;
   --dark-green-hover: #176831;
   --navbar-green: #02501b;
-  --pale: #e8e9e8;
-  /* --pale: #E9EDE9; */
-  /* --pale: #E7EFEA; */
+  --background: #f5f6f5;
+  --background-higher: #ebedeb;
   --masthead: #272d27;
   --orange: #E05A00;
   --yellowy: #F5AF00;
-  /*--yellowy: #E0A800;*/
   --black: #212529;
-  --bluey: #778DA9;
-  --blue-grey: #8296B0;
+  --on-dark: #f7f7f7f7;
 }
 
 /* Global */
@@ -24,6 +21,7 @@ html {
 
 a, a:hover, a:visited, a:active, a:focus {
   color: inherit;
+  color: var(--dark-green)
 }
 
 .com-content-article a,
@@ -37,6 +35,7 @@ a, a:hover, a:visited, a:active, a:focus {
 
 body {
     font-family: 'Lato', sans-serif;
+    background-color: #f5f6f5;
 }
 
 h1, h2, h3, h4 {
@@ -45,9 +44,14 @@ h1, h2, h3, h4 {
 
 h1 {
   color: var(--dark-green) ;
-  /*border-bottom: 4px solid var(--yellowy);*/
   margin-bottom: 1.0rem;
-  /*padding-bottom: 0.7rem;*/
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+h2 {
+  color: var(--dark-green) ;
+  font-size: 2.25rem;
 }
 
 h3 {
@@ -63,7 +67,7 @@ h3 {
 
 .ctc-main {
   margin: 2rem 0rem;
-  min-height: 60vh;
+  min-height: 66vh;
 }
 
 .ctc-wrapper-col {
@@ -160,24 +164,18 @@ h3 {
   border: 1px #F1F2EB solid;
   border-radius: 5px;
   padding: 6px 10px;
+  color: var(--on-dark);
+}
+
+a.login-button:hover, 
+a.login-button:visited, 
+a.login-button:active,
+a.login-button:focus
+{
+  color: var(--on-dark);
 }
 
 /* General */
-.ctc-important {
-  background-color: var(--bluey);
-  border-radius: 7px;
-  color: #f7f7f7;
-  padding: 10px;
-  font-weight:500;
-  font-size: 1.1rem;
-  text-align: center;
-  border: #C0DDE7 1px solid;
-  width: 100%;
-}
-
-.ctc-important:hover {
-  background-color: var(--blue-grey);
-}
 
 /* Navigation */
 .ctc-navbar {
@@ -203,7 +201,7 @@ h3 {
 .ctc-button, .ctc-button:link, .ctc-button:visited, .ctc-button:active {
     background-color: var(--dark-green);
     border-color: var(--dark-green);
-    color: #f7f7f7;
+    color: var(--on-dark);
 }
 
 .ctc-button:hover {
@@ -213,13 +211,14 @@ h3 {
 
 .ctc-button-outline, .ctc-button-outline:link, .ctc-button-outline:visited, .ctc-button-outline:active {
     border-color: var(--dark-green);
-    background-color: #f7f7f7;
+    background-color: var(--on-dark);
     color: var(--dark-green)
 }
 
 .ctc-button-outline:hover {
   background-color: var(--dark-green-hover);
-  color: #f7f7f7;
+  color: var(--on-dark);
+
 }
 
 
@@ -230,7 +229,6 @@ h3 {
 
 /* Home Welcome */
 .home-h1 {
-  font-size: 2.5rem;
   text-align: left;
 }
 
@@ -297,21 +295,6 @@ h3 {
   }
 }
 
-.row-striped:nth-of-type(odd){
-  background-color: #00591d10;
-  border-left: 4px #c4921cd0 solid;
-  /* background-color: #ECEBEA; */
-}
-
-.row-striped:nth-of-type(even){
-  background-color: #d0d6b320;
-  border-left: 4px var(--dark-green) solid;
-}
-
-.row-striped {
-  padding: 15px 0 5px 0;
-}
-
 .calendar-month
 {
   font-size: 1.4rem;
@@ -326,9 +309,17 @@ h3 {
 
 .event
 {
-  margin-left: 0px;
+  padding: 15px 0 5px 0;
   font-size: 0.9rem;
-  min-height: 110px;
+  margin-bottom: 9px;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  background: var(--background-higher);
+}
+
+a.event
+{
+  color: var(--black);
 }
 
 .event-title
@@ -402,8 +393,18 @@ a.trip-report:hover .trip-report-title
 {
   width: 100%;
   background-color: #272d27;
-  color: #f7f7f7f7;
+  color: var(--on-dark);
+
   font-size: 1rem;
+}
+
+.footer-container a,
+.footer-container a:hover, 
+.footer-container a:visited, 
+.footer-container a:active,
+.footer-container a:focus
+{
+  color: var(--on-dark);
 }
 
 .footer
@@ -539,8 +540,8 @@ svg {
 .com-users-remind__submit button,
 .com-users-reset-confirm__submit button,
 .com-users-reset__submit button {
-  background-color: #var(--navbar-green);
-  border-color: #var(--navbar-green);
+  background-color: var(--navbar-green);
+  border-color: var(--navbar-green);
 }
 
 .com-contact__form button:hover,
@@ -549,7 +550,7 @@ svg {
 .com-users-reset-confirm button:hover,
 .com-users-reset__submit button:hover {
   background-color: #037126;
-  border-color: #var(--navbar-green);
+  border-color: var(--navbar-green);
 }
 
 .com-users-login__remind,
@@ -621,7 +622,7 @@ svg {
 
 .ctcdocs-button:hover {
   border-radius: 2px;
-  color: #f7f7f7;
+  color: var(--on-dark);
   background: var(--dark-green-hover);
 }
 
@@ -639,6 +640,6 @@ svg {
 .ctcdocs-button-new {
   margin: 2px;
   padding: 4px 8px;
-  background: #f7f7f7;
+  background: var(--on-dark);
   border: 1px solid var(--dark-green-hover);
 }
