@@ -1,63 +1,3 @@
-/* Definitions */
-:root {
-  --dark-green: #00591d;
-  --dark-green-hover: #176831;
-  --navbar-green: #02501b;
-  --background: #f5f6f5;
-  --background-higher: #ebedeb;
-  --masthead: #272d27;
-  --orange: #E05A00;
-  --yellowy: #F5AF00;
-  --black: #212529;
-  --on-dark: #f7f7f7f7;
-}
-
-/* Global */
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-a, a:hover, a:visited, a:active, a:focus {
-  color: inherit;
-  color: var(--dark-green)
-}
-
-.com-content-article a,
-.com-content-article a:hover,
-.com-content-article a:visited,
-.com-content-article a:active {
-  text-decoration: none;
-  border-bottom: 1px solid #7fbdff;
-  color: #007bff;
-}
-
-body {
-    font-family: 'Lato', sans-serif;
-    background-color: #f5f6f5;
-}
-
-h1, h2, h3, h4 {
-  font-family:  'Lato', sans-serif;
-}
-
-h1 {
-  color: var(--dark-green) ;
-  margin-bottom: 1.0rem;
-  font-size: 2.5rem;
-  font-weight: 600;
-}
-
-h2 {
-  color: var(--dark-green) ;
-  font-size: 2.25rem;
-}
-
-h3 {
-  font-size: 1.5rem;
-}
-
 .col-empty, .col:empty, [class^=col-]:empty { display: none; }
 
 /* Layout */
@@ -340,7 +280,7 @@ a.event
 .event-date
 {
   font-size: 1.3rem;
-  font-weight: 500;
+  /* font-weight: 500; */
   width: 100%;
   background-color: #919293;
 }
@@ -507,6 +447,15 @@ svg {
 }
 
 /* Joomla Components */
+.com-content-article a,
+.com-content-article a:hover,
+.com-content-article a:visited,
+.com-content-article a:active {
+  text-decoration: none;
+  border-bottom: 1px solid #7fbdff;
+  color: var(--dark-green)
+}
+
 .com-users-login {
   max-width: 450px;
   margin-left: auto;
@@ -557,8 +506,12 @@ svg {
 .com-users-login__reset  {
   border: 0;
   padding: 3px;
-  color: #0969da;
+  color: var(--dark-green);
   font-size: 1rem;
+  background: var(--background);
+}
+
+.com-users-login__options {
 }
 
 .com-users-reset legend,

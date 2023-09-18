@@ -1,0 +1,45 @@
+/* Definitions */
+:root {
+  --dark-green: #00591d;
+  --dark-green-hover: #176831;
+  --navbar-green: #02501b;
+  --background: #f5f6f5;
+  --background-higher: #ebedeb;
+  --masthead: #272d27;
+  --orange: #E05A00;
+  --yellowy: #F5AF00;
+  --black: #212529;
+  --on-dark: #f7f7f7f7;
+}
+
+/* Global */
+
+a, a:hover, a:visited, a:active, a:focus {
+  color: var(--dark-green)
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: var(--background);
+}
+
+h1, h2, h3, h4 {
+  font-family:  'Lato', sans-serif;
+  font-weight: 500;
+}
+
+h1 {
+  color: var(--dark-green) ;
+  margin-bottom: 1.0rem;
+  font-size: 2.75rem;
+  /* font-weight: 600; */
+}
+
+h2 {
+  color: var(--dark-green) ;
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
