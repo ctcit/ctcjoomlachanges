@@ -55,7 +55,7 @@ use Joomla\CMS\Helper\ModuleHelper;
     <div class="more-events">
     All Trips<i class="fas fa-long-arrow-alt-right pl-2"></i>
     </div>
-    <h2 class="text-decoration-none">Trip List</h2>
+    <h2 class="text-decoration-none">Upcoming Trips</h2>
   </div>
 </a>
 
