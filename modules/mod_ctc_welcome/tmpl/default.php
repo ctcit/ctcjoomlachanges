@@ -18,17 +18,44 @@ $path   = JURI::base(true).'/templates/'.$app->getTemplate().'/';
 
 if ($isMember) {
   ?>
-<h1 class="home-h1">Members Menu</h1>
+<h2>Shortcuts</h2>
 <!--<h1 class="home-h1">Welcome <?=$user->name;?></h1>-->
-  <a href="index.php/members-menu/trip-signup" class="btn home-btn"><i class="fas fa-hiking home-btn-icon"></i><br>Trip Signup</a>
-  <a href="index.php/members-menu/create-trip-report" class="btn home-btn"><i class="fas fa-edit home-btn-icon"></i><br>Create Trip Report</a>
-  <a href="https://docs.google.com/spreadsheets/d/1xzz5pRv9Oj0UXxwI0TAJyfBbfUqAyXWKHKj6HJp8crE/edit#gid=816103837" class="btn home-btn"><i class="fas fa-calendar home-btn-icon"></i><br>Hut Booking Calendar</a>
-  <a href="index.php/members-menu/gear-hire" class="btn home-btn"><i class="fas fa-campground home-btn-icon"></i><br>Gear Hire</a>
-  <a href="index.php/user-details" class="btn home-btn"><i class="fas fa-user home-btn-icon"></i><br>Your CTC Account</a>
-  <a href="index.php/members-menu/officialdom" class="btn home-btn"><i class="fas fa-file-alt home-btn-icon"></i><br>Club Documents</a>
-  <a href="index.php/members-menu/tripleaders" class="btn home-btn"><i class="fas fa-hand-pointer home-btn-icon"></i><br>Trip Leader Info</a>
-  <a href="index.php/members-menu/newsletter-archive" class="btn home-btn"><i class="fas fa-newspaper home-btn-icon"></i><br>Newsletter Archive</a>
-  <a href="index.php/mailing-list" class="btn home-btn"><i class="fas fa-envelope home-btn-icon"></i><br>Email All Members</a>
+  <div class="row">
+    <div class="col-md-6 col-xl-4 col-shortcuts">
+      <a href="index.php/members-menu/trip-signup" class="btn home-btn">
+        <i class="fas fa-hiking home-btn-icon"></i> Trip Signup
+      </a>
+    </div>
+    <div class="col-md-6 col-xl-4 col-shortcuts">
+    <a href="index.php/members-menu/create-trip-report" class="btn home-btn">
+        <i class="fas fa-edit home-btn-icon"></i> Create Trip Report
+      </a>
+    </div>
+    <div class="col-md-6 col-xl-4 col-shortcuts">
+    <a href="https://docs.google.com/spreadsheets/d/1xzz5pRv9Oj0UXxwI0TAJyfBbfUqAyXWKHKj6HJp8crE/edit#gid=816103837" class="btn home-btn">
+        <i class="fas fa-calendar home-btn-icon"></i> Hut Booking Calendar
+      </a>
+    </div>
+    <!-- <div class="w-100"></div> -->
+    <div class="col-md-6 col-xl-4 col-shortcuts">
+    <a href="index.php/members-menu/gear-hire" class="btn home-btn">
+        <i class="fas fa-campground home-btn-icon"></i> Gear Hire
+      </a>
+    </div>
+    <div class="col-md-6 col-xl-4 col-shortcuts">
+    <a href="index.php/members-menu/officialdom" class="btn home-btn">
+        <i class="fas fa-file-alt home-btn-icon"></i> Club Documents
+      </a>
+    </div>
+    <div class="col-md-6 col-xl-4 col-shortcuts">
+    <a href="index.php/members-menu/tripleaders" class="btn home-btn">
+        <i class="fa fa-star home-btn-icon"></i> Trip Leader Info
+      </a>
+    </div>
+  </div>
+  <!--<a href="index.php/members-menu/newsletter-archive" class="btn home-btn"><i class="fas fa-newspaper home-btn-icon"></i><br>Newsletter Archive</a>-->
+  <!-- <a href="index.php/mailing-list" class="btn home-btn"><i class="fas fa-envelope home-btn-icon"></i><br>Email All Members</a>-->
+  <!-- <a href="index.php/user-details" class="btn home-btn"><i class="fas fa-user home-btn-icon"></i><br>Your CTC Account</a> -->
 <?php
 
 } else {
