@@ -43,3 +43,28 @@ h2 {
 h3 {
   font-size: 1.5rem;
 }
+
+/* Buttons */
+
+.ctc-button, .ctc-button:link, .ctc-button:visited, .ctc-button:active {
+    background-color: var(--dark-green);
+    border-color: var(--dark-green);
+    color: var(--on-dark);
+}
+
+.ctc-button:hover {
+  background-color: white;
+  background-color: var(--dark-green-hover);
+}
+
+.ctc-button-outline, .ctc-button-outline:link, .ctc-button-outline:visited, .ctc-button-outline:active {
+    border-color: var(--dark-green);
+    background-color: var(--on-dark);
+    color: var(--dark-green)
+}
+
+.ctc-button-outline:hover {
+  background-color: var(--dark-green-hover);
+  color: var(--on-dark);
+
+}
