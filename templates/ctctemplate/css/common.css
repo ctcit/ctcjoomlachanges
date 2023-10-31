@@ -1,6 +1,7 @@
 /* Definitions */
 :root {
   --dark-green: #00591d;
+  --dark-green-fade: #00591d77;
   --dark-green-hover: #176831;
   --navbar-green: #02501b;
   --background: #f5f6f5;
@@ -31,8 +32,8 @@ h1, h2, h3, h4 {
 h1 {
   color: var(--dark-green) ;
   margin-bottom: 1.0rem;
-  font-size: 2.75rem;
-  /* font-weight: 600; */
+  font-size: 2.5rem;
+  font-weight: 600;
 }
 
 h2 {
@@ -41,6 +42,7 @@ h2 {
 }
 
 h3 {
+  color: var(--dark-green) ;
   font-size: 1.5rem;
 }
 
@@ -53,7 +55,7 @@ h3 {
 }
 
 .ctc-button:hover {
-  background-color: white;
+  color: white;
   background-color: var(--dark-green-hover);
 }
 
@@ -66,5 +68,4 @@ h3 {
 .ctc-button-outline:hover {
   background-color: var(--dark-green-hover);
   color: var(--on-dark);
-
 }
