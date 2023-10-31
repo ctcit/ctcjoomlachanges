@@ -19,10 +19,9 @@ $path   = JURI::base(true).'/templates/'.$app->getTemplate().'/';
 if ($isMember) {
   ?>
 <h2>Shortcuts</h2>
-<!--<h1 class="home-h1">Welcome <?=$user->name;?></h1>-->
   <div class="row">
     <div class="col-md-6 col-xl-4 col-shortcuts">
-      <a href="index.php/members-menu/trip-signup" class="btn home-btn">
+      <a href="index.php/trip-signup" class="btn home-btn">
         <i class="fas fa-hiking home-btn-icon"></i> Trip Signup
       </a>
     </div>
@@ -36,7 +35,6 @@ if ($isMember) {
         <i class="fas fa-calendar home-btn-icon"></i> Hut Booking Calendar
       </a>
     </div>
-    <!-- <div class="w-100"></div> -->
     <div class="col-md-6 col-xl-4 col-shortcuts">
     <a href="index.php/members-menu/gear-hire" class="btn home-btn">
         <i class="fas fa-campground home-btn-icon"></i> Gear Hire
@@ -53,9 +51,6 @@ if ($isMember) {
       </a>
     </div>
   </div>
-  <!--<a href="index.php/members-menu/newsletter-archive" class="btn home-btn"><i class="fas fa-newspaper home-btn-icon"></i><br>Newsletter Archive</a>-->
-  <!-- <a href="index.php/mailing-list" class="btn home-btn"><i class="fas fa-envelope home-btn-icon"></i><br>Email All Members</a>-->
-  <!-- <a href="index.php/user-details" class="btn home-btn"><i class="fas fa-user home-btn-icon"></i><br>Your CTC Account</a> -->
 <?php
 
 } else {
