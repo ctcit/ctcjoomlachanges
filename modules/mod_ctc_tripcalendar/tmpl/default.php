@@ -22,11 +22,11 @@ use Joomla\CMS\Helper\ModuleHelper;
 <?php if ($social != null) {
 ?>
 <a href="<?php echo ($isMember) ? $tripSignupUrl : $publicSocialCalendarUrl; ?>" class="calendar-header-link">
-  <div class="calendar-header">
+  <div class="calendar-header pb-2">
+    <h2 class="mb-0">Next Social</h2>
     <div class="more-events">
     All Socials<i class="fas fa-long-arrow-alt-right pl-2"></i>
     </div>
-    <h2 class="pb-1">Next Social</h2>
   </div>
 </a>
 <?php
@@ -52,10 +52,10 @@ use Joomla\CMS\Helper\ModuleHelper;
 
 <a href="<?php echo ($isMember) ? $tripSignupUrl : $publicTripCalendarUrl; ?>" class="calendar-header-link">
   <div class="calendar-header">
+    <h2 class="text-decoration-none mb-0">Upcoming Trips</h2>
     <div class="more-events">
     All Trips<i class="fas fa-long-arrow-alt-right pl-2"></i>
     </div>
-    <h2 class="text-decoration-none">Upcoming Trips</h2>
   </div>
 </a>
 
