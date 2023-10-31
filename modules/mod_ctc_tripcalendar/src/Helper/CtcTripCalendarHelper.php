@@ -39,12 +39,11 @@ class CtcTripCalendarHelper
 		curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 1);
 		curl_setopt($curl, CURLOPT_TIMEOUT, 1);
 		curl_setopt($curl, CURLOPT_HTTPHEADER, [
-		#'API-Key: 7G0I3BSHPDXV69QWX1IWK4PR3WRJ6KAC',
 		'Content-Type: application/json'
 		]);
 		$response = curl_exec($curl);
 		curl_close($curl);
-		$trips = $reponse != '' ? json_decode($response) : [];
+		$trips = json_decode($response);
 
 		// Now we want to group by month
 		$now = new DateTimeImmutable();
@@ -57,7 +56,7 @@ class CtcTripCalendarHelper
 		foreach($trips as $trip) {
 			$date = DateTimeImmutable::createFromFormat('Y-m-d', $trip->tripDate);
 			$trip->tripDate = $date;
-			if ($date < $now) {
+			if ($date < $now || $trip->state !== "Open") {
 				continue;
 			}
 			if ($trip->isSocial) {
