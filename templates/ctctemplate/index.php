@@ -81,10 +81,10 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
     <?php if ($isHome) {
     ?>
         <!-- Homepage content -->
-        <main class="container ctc-home-container" id="homepage-container">
+        <main class="container ctc-home-container ctc-main" id="homepage-container">
             <div class="row">
                 <!-- Mobile only - home welcome first, then calendar, then trip report -->
-                <div class="d-lg-none col ctc-main pb-0 mb-0">
+                <div class="d-lg-none col ctc-col pb-0 mb-0">
                     <div id="socials" class="px-2 display-flex">
                         <a href="https://facebook.com/ctcnz"><i class="fab fa-facebook px-2" style="color: #4267B2; font-size:2rem"></i></a>
                         <a href="https://instagram.com/christchurchtrampingclub"><i class="fab fa-instagram px-2" style="font-size:2rem"></i></a>
@@ -99,14 +99,14 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
                         </a>
                     </div>
                 </div>
-                <div class="calendar col-lg-4 col-xl-3 order-lg-12 ctc-main">
-                    <div id="socials" class="d-none d-lg-flex pb-3">
+                <div class="calendar col-lg-4 col-xl-3 order-lg-12 ctc-col">
+                    <div id="socials" class="d-none d-lg-flex pb-3 pt-2">
                         <a href="https://facebook.com/ctcnz"><i class="fab fa-facebook px-2" style="color: #4267B2; font-size:2rem"></i></a>
                         <a href="https://instagram.com/christchurchtrampingclub"><i class="fab fa-instagram px-2" style="font-size:2rem"></i></a>
                     </div>
                     <jdoc:include type="modules" name="upcoming-trips" style="none" />
                 </div>
-                <div id="homepage-main" class="col-lg order-lg-1 ctc-main">
+                <div id="homepage-main" class="col-lg order-lg-1 ctc-col">
                     <!-- Non-Mobile only - home welcome comes in here -->
                     <div class="d-none d-lg-block">
                         <jdoc:include type="message" />
@@ -125,11 +125,13 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
     ?>
         <!-- Page content for iframe wrapper pages
              PENDING - Eventually let them go fill-width -->
-        <main class="container-fluid" id="page-container">
+        <main class="container-fluid ctc-main" id="page-container">
             <div class="row justify-content-center">
-                <div class="ctc-main col ctc-wrapper-col">
+                <div class="ctc-col col ctc-wrapper-col">
                     <jdoc:include type="message" />
-                    <h1><?php echo $heading != "" ? $heading : $title; ?></h2>
+                    <!--<h1>
+                        <?php //echo $heading != "" ? $heading : $title; ?>
+                    </h2>-->
                     <jdoc:include type="component" />
                 </div>
             </div>
@@ -137,10 +139,10 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
     <?php
     } else { ?>
         <!-- Page content for 'normal' pages -->
-        <main class="container" id="page-container">
+        <main class="container ctc-main" id="page-container">
             <div class="row">
                 <div class="ctc-left-menu col col-auto"><jdoc:include type="modules" name="left-menu" style="none" /></div>
-                <div class="ctc-main col">
+                <div class="ctc-col col">
                     <jdoc:include type="message" />
                     <jdoc:include type="component" />
                 </div>
@@ -159,8 +161,11 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
                         <img src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/images/logo.png" style="width: 140px">
                     </div>
                     <div class="pt-1 pr-4">
-                        <p><a href="index.php/join-us">Join Us</a><br>
-                        <a href="index.php/about/contact-us">Contact Us</a></p>
+                        <p>
+                            <a href="index.php/join-us">Join Us</a><br>
+                            <a href="index.php/about/contact-us">Contact Us</a><br>
+                            <a href="index.php/payment-details">Payment Details</a>
+                        </p>
                         <p>Affiliated to <a href="fmc.org.nz">Federated Mountain Clubs</a></p>
                         <p>© 2023 Christchurch Tramping Club</p>
                     </div>
