@@ -5,7 +5,8 @@ defined('_JEXEC') or die('Restricted access');
 $doc = JFactory::getDocument();
 $activePage = JFactory::getApplication()->getMenu()->getActive();
 $isHome = $activePage->home;
-$title = $activePage->title;
+$title = "CTC - $activePage->title";
+$this->setTitle($title);
 $heading = $activePage->getParams()->get('page_heading');
 $pageType = Factory::getApplication()->getInput()->get('view');
 
