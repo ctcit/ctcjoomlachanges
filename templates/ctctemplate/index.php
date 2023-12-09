@@ -166,7 +166,7 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
                             <a href="index.php/about/contact-us">Contact Us</a><br>
                             <a href="index.php/payment-details">Payment Details</a>
                         </p>
-                        <p>Affiliated to <a href="fmc.org.nz">Federated Mountain Clubs</a></p>
+                        <p>Affiliated to <a href="https://fmc.org.nz">Federated Mountain Clubs</a></p>
                         <p>© 2023 Christchurch Tramping Club</p>
                     </div>
                 </div>
