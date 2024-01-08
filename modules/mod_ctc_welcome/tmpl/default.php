@@ -21,32 +21,32 @@ if ($isMember) {
 <h2>Shortcuts</h2>
   <div class="row">
     <div class="col-md-6 col-xl-4 col-shortcuts">
-      <a href="index.php/trip-signup" class="btn home-btn">
+      <a href="/trip-signup" class="btn home-btn">
         <i class="fas fa-hiking home-btn-icon"></i> Trip Signup
       </a>
     </div>
     <div class="col-md-6 col-xl-4 col-shortcuts">
-    <a href="index.php/members-menu/create-trip-report" class="btn home-btn">
+    <a href="/members-menu/create-trip-report" class="btn home-btn">
         <i class="fas fa-edit home-btn-icon"></i> Create Trip Report
       </a>
     </div>
     <div class="col-md-6 col-xl-4 col-shortcuts">
-    <a href="https://docs.google.com/spreadsheets/d/1xzz5pRv9Oj0UXxwI0TAJyfBbfUqAyXWKHKj6HJp8crE/edit#gid=816103837" class="btn home-btn">
-        <i class="fas fa-calendar home-btn-icon"></i> Hut Booking Calendar
+    <a href="/hut-booking" class="btn home-btn">
+        <i class="fas fa-calendar home-btn-icon"></i> Hut Booking
       </a>
     </div>
     <div class="col-md-6 col-xl-4 col-shortcuts">
-    <a href="index.php/members-menu/gear-hire" class="btn home-btn">
+    <a href="/members-menu/gear-hire" class="btn home-btn">
         <i class="fas fa-campground home-btn-icon"></i> Gear Hire
       </a>
     </div>
     <div class="col-md-6 col-xl-4 col-shortcuts">
-    <a href="index.php/members-menu/officialdom" class="btn home-btn">
+    <a href="/members-menu/officialdom" class="btn home-btn">
         <i class="fas fa-file-alt home-btn-icon"></i> Club Documents
       </a>
     </div>
     <div class="col-md-6 col-xl-4 col-shortcuts">
-    <a href="index.php/members-menu/tripleaders" class="btn home-btn">
+    <a href="/members-menu/tripleaders" class="btn home-btn">
         <i class="fa fa-star home-btn-icon"></i> Trip Leader Info
       </a>
     </div>
@@ -68,8 +68,8 @@ We also organise instruction courses and have a range of equipment for hire</p>
 club and always welcome new members, whatever your age, ability or background!</p>
 <div class="clearfix">
     <div class="float-right">
-      <a href="index.php/about/about-ctc" class="ctc-button-outline btn btn-primary px-5 m-2" role="button">Learn More</a>
-      <a href="index.php/join-us" class="ctc-button btn btn-primary px-5 m-2" role="button">Join the Club</a>
+      <a href="/about/about-ctc" class="ctc-button-outline btn btn-primary px-5 m-2" role="button">Learn More</a>
+      <a href="/join-us" class="ctc-button btn btn-primary px-5 m-2" role="button">Join the Club</a>
     </div>
 </div>
 
