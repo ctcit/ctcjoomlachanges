@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <extension version="3.0" type="plugin" group="content" method="upgrade" >
-	<name>Prospective Member</name>
+	<name>plg_content_ctcprospectivemember</name>
     <author>Doug Forster</author>
 	<creationDate>June 2016</creationDate>
 	<copyright>(C) Christchurch Tramping Club.</copyright>
 	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
 	<authorEmail>ctc@forster.net.nz</authorEmail>
 	<authorUrl>www.ctc.org.nz</authorUrl>
-	<version>1.1.0</version>
+	<version>1.2.0</version>
 	<description>Handles prospective member form submisssion.</description>
     <license></license>
 	<files>
-		<filename plugin="ProspectiveMember">ProspectiveMember.php</filename>
+		<filename plugin="ctcprospectivemember">ctcprospectivemember.php</filename>
 	</files>
     <config/>
 </extension>
