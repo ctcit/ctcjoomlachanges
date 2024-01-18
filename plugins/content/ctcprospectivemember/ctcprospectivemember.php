@@ -6,7 +6,7 @@ Displays the leader of trip calendar entries if user is registered or a warning 
 // Check to ensure this file is included in Joomla!
 defined('_JEXEC') or die();
 
-class plgContentProspectiveMember extends JPlugin
+class plgContentCTCProspectiveMember extends JPlugin
 {
     /**
     * Link bot
@@ -61,6 +61,7 @@ class plgContentProspectiveMember extends JPlugin
             $row->text = "<p>Your form has been submitted.</p>".
                          "<p>Thank you for your interest in the CTC.</p>";
         }
+	return true;
     }
 }
 ?>
