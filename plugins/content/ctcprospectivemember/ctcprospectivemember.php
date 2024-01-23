@@ -28,7 +28,9 @@ class plgContentProspectiveMember extends JPlugin
             // Now send the email
             jimport( 'joomla.mail.helper' );
             jimport( 'joomla.mail.mail' );
-            $name = $_POST['name'];
+            // The "name" field needs the leading underscore because for some reason Joola removes
+            // the "name" attribute from the input if it's value is "name" ?!?
+            $name = $_POST['_name'];
             $email = $_POST['email'];
             $email2 = $_POST['email2'];
             $phone = $_POST['phone'];
@@ -61,6 +63,7 @@ class plgContentProspectiveMember extends JPlugin
             $row->text = "<p>Your form has been submitted.</p>".
                          "<p>Thank you for your interest in the CTC.</p>";
         }
+        return true;
     }
 }
 ?>
