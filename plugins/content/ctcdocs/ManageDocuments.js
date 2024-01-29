@@ -7,7 +7,7 @@ function RemoveFile(p_root, p_subdir, p_filename) {
         formdata.append('filename', p_filename);
         $jq(function ($jq) {
             $jq.ajax({
-                url: 'index.php?option=com_ajax&plugin=managectcdocuments&group=content&format=raw',
+                url: '/index.php?option=com_ajax&plugin=managectcdocuments&group=content&format=raw',
                 type: 'POST',
                 data: formdata,
                 cache: false,
@@ -47,7 +47,7 @@ function DoRenameDocumentFolder(p_root, p_subdir) {
         formdata.append('newname', newname);
         $jq(function ($jq) {
             $jq.ajax({
-                url: 'index.php?option=com_ajax&plugin=managectcdocuments&group=content&format=raw',
+                url: '/index.php?option=com_ajax&plugin=managectcdocuments&group=content&format=raw',
                 type: 'POST',
                 data: formdata,
                 cache: false,
@@ -128,7 +128,7 @@ function DoRenameFile(p_root, p_subdir, p_filename) {
         formdata.append('newname', newname);
         $jq(function ($jq) {
             $jq.ajax({
-                url: 'index.php?option=com_ajax&plugin=managectcdocuments&group=content&format=raw',
+                url: '/index.php?option=com_ajax&plugin=managectcdocuments&group=content&format=raw',
                 type: 'POST',
                 data: formdata,
                 cache: false,
@@ -185,7 +185,7 @@ function DoUpload(p_root, p_subdir) {
             // Note that there doesn't need to actually be a plugin with that name
             // Just any plugin with onAjax... method in the specified group
             // In this case handled by the CTCDocs plugin
-            url: 'index.php?option=com_ajax&plugin=managectcdocuments&group=content&format=raw',
+            url: '/index.php?option=com_ajax&plugin=managectcdocuments&group=content&format=raw',
             type: 'POST',
             // Form data
             data: formdata,
@@ -243,7 +243,7 @@ function DoNewDocumentFolder(p_root) {
     formdata.append('newname', newname);
     $jq(function ($jq) {
         $jq.ajax({
-            url: 'index.php?option=com_ajax&plugin=managectcdocuments&group=content&format=raw',
+            url: '/index.php?option=com_ajax&plugin=managectcdocuments&group=content&format=raw',
             type: 'POST',
             data: formdata,
             cache: false,
