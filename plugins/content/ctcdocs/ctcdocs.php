@@ -87,7 +87,8 @@ class plgContentCTCDocs extends JPlugin {
              } else {
                 $key = $time;
             }
-            $line = "<li><a href=\"" . plgContentCTCDocs::$liveSite . "/$root/$subdir/$file\" target=\"_blank\">$descr</a>$extra";
+            $link = plgContentCTCDocs::$liveSite . "/index.php?option=com_ajax&plugin=getctcdocument&group=content&format=raw&filename=" . $root . DIRECTORY_SEPARATOR . $subdir . DIRECTORY_SEPARATOR . $file;
+            $line = "<li><a href=\"$link\">$descr</a>$extra";
             if (plgContentCTCDocs::$editallowed) {
                 $line .= '<button style="margin-left: 4px;" class="ctcdocs-button ctcdocs-button-file" title="Remove file"  onclick="RemoveFile(\''
                          .plgContentCTCDocs::escapeApostrophe($root) . '\',\'' . plgContentCTCDocs::escapeApostrophe($subdir) . '\',\'' . plgContentCTCDocs::escapeApostrophe($file) . '\')"><i class="far fa-trash-alt"></i></button>';
@@ -97,7 +98,7 @@ class plgContentCTCDocs extends JPlugin {
             $line .= "</li>";
             $lines[$key] = $line;
         }
-        ksort($lines);
+        asort($lines);
         foreach ($lines as $line) {
             $result .= $line;
         }
@@ -230,6 +231,29 @@ class plgContentCTCDocs extends JPlugin {
             return json_encode($data);
         }
         return "";
+    }
+
+    public function onAjaxGetctcdocument() {
+        $user = JFactory::getUser();
+        if (!isset($user) or $user->guest == 1) {
+            die("Unauthorised access");
+        }
+        if (!array_key_exists( "filename", $_GET))
+        {
+            die("No filename specified");
+        }
+        $filename = $_GET["filename"];
+        $path = JPATH_BASE . DIRECTORY_SEPARATOR . $filename;
+        // Return 404 if file doesn't exist
+        if (!file_exists($path)) {
+            header("HTTP/1.0 404 Not Found");
+            die("File not found");
+        }
+        // return the file to the browser
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename="' . basename($filename) . '"');
+        header('Content-Length: ' . filesize($path));
+        readfile($path);
     }
 
 }
