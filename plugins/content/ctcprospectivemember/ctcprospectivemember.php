@@ -37,9 +37,22 @@ class plgContentCTCProspectiveMember extends JPlugin
             $mobile = $_POST['mobile'];
             $address = $_POST['address'];
             $postcode = $_POST['postcode'];
+            $howDidYouHear = $_POST['howdidyouhear'];
             $notes = $_POST['notes'];
 
-            $body = "name\t$name\nemail\t$email\nemail2\t$email2\nphone\t$phone\nmobile\t$mobile\naddress\t$address\npostcode\t$postcode\nnotes\t$notes";
+            $body = <<<END
+New CTC Prospective Member Contact
+
+Name: $name
+Email: $email
+Email Veification: $email2
+Phone: $phone
+Mobile: $mobile
+Address: $address
+Postcode: $postcode
+How did you hear about the CTC: $howDidYouHear
+Notes: $notes
+END;
             $user = JFactory::getUser();
             $config = JFactory::getConfig();
             $to = "new_members@ctc.org.nz"; // Todo look up a contact to find this
