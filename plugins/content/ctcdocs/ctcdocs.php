@@ -250,9 +250,10 @@ class plgContentCTCDocs extends JPlugin {
             die("File not found");
         }
         // return the file to the browser
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename="' . basename($filename) . '"');
-        header('Content-Length: ' . filesize($path));
+        $app = \Joomla\CMS\Factory::getApplication();
+        $app->setHeader('Content-Type', 'application/pdf', true);
+        $app->setHeader('Content-Disposition', 'attachment; filename="' . basename($filename) . '"', true);	
+        $app->setHeader('Content-Length', filesize($path), true);
         readfile($path);
     }
 
