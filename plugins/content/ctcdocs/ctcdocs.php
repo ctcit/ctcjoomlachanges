@@ -251,12 +251,10 @@ class plgContentCTCDocs extends JPlugin {
         }
         // return the file to the browser
         $app = \Joomla\CMS\Factory::getApplication();
-        $app->setHeader('Content-Type', 'application/pdf', true);
+        $app->setHeader('Content-Type', 'application/octet-stream', true);
         $app->setHeader('Content-Disposition', 'attachment; filename="' . basename($filename) . '"', true);	
         $app->setHeader('Content-Length', filesize($path), true);
         readfile($path);
     }
-
 }
-
 ?>
