@@ -46,7 +46,7 @@ if ($isMember) {
       </a>
     </div>
     <div class="col-md-6 col-xl-4 col-shortcuts">
-    <a href="/members-menu/tripleaders" class="btn home-btn">
+    <a href="/members-menu/trip-leaders" class="btn home-btn">
         <i class="fa fa-star home-btn-icon"></i> Trip Leader Info
       </a>
     </div>
