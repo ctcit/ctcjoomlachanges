@@ -249,10 +249,24 @@ class plgContentCTCDocs extends JPlugin {
             header("HTTP/1.0 404 Not Found");
             die("File not found");
         }
-        // return the file to the browser
+        $extension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+
+        // Set Content-Type and disposition based on file type
+        $mimeTypes = [
+            'pdf' => 'application/pdf',
+            'doc' => 'application/msword',
+            'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+            'txt' => 'text/plain',
+            'jpg' => 'image/jpeg',
+            'png' => 'image/png'
+        ];
+
+        $contentType = $mimeTypes[$extension] ?? 'application/octet-stream';
+        $disposition = ($extension === 'pdf') ? 'inline' : 'attachment';
+
         $app = \Joomla\CMS\Factory::getApplication();
-        $app->setHeader('Content-Type', 'application/octet-stream', true);
-        $app->setHeader('Content-Disposition', 'attachment; filename="' . basename($filename) . '"', true);	
+        $app->setHeader('Content-Type', $contentType, true);
+        $app->setHeader('Content-Disposition', $disposition.'; filename="' . basename($filename) . '"', true);	
         $app->setHeader('Content-Length', filesize($path), true);
         readfile($path);
     }
